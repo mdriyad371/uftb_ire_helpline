@@ -7,272 +7,123 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(-45deg, #0a1928, #0b2b3d, #0a1f2e, #0c2c3f);
-            background-size: 400% 400%;
-            animation: galaxyShift 18s ease infinite;
-            color: #eef4ff;
-            padding: 24px 18px 60px;
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{
+            font-family:'Inter',sans-serif;
+            background:linear-gradient(-45deg,#0a1928,#0b2b3d,#0a1f2e,#0c2c3f);
+            background-size:400% 400%;
+            animation:galaxyShift 18s ease infinite;
+            color:#eef4ff;
+            padding:24px 18px 60px;
         }
-        @keyframes galaxyShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes galaxyShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+        .welcome-screen{
+            position:fixed;top:0;left:0;width:100%;height:100%;
+            background:radial-gradient(circle at 30% 20%,#021c2f,#010a14);
+            display:flex;flex-direction:column;justify-content:center;align-items:center;
+            z-index:1000;transition:opacity 1s ease,visibility 1s ease;
+            text-align:center;padding:32px;
         }
-        /* ওয়েলকাম স্ক্রিন - প্রফেশনাল মিনিমাল */
-        .welcome-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 20%, #021c2f, #010a14);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 1s ease;
-            text-align: center;
-            padding: 32px;
-        }
-        .welcome-screen.hide {
-            opacity: 0;
-            visibility: hidden;
-        }
-        /* অ্যানিমেটেড লাইন ও লোগো */
-        .welcome-logo {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #ffd966, #ffb347);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #021c2f;
-            margin-bottom: 40px;
-            animation: logoPulse 2s ease infinite;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-        }
-        @keyframes logoPulse {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.8; }
-        }
-        .welcome-type {
-            font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff, #b3e4ff);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 32px;
-            min-height: 110px;
-        }
-        .slogan-type {
-            font-size: 1.3rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.8);
-            letter-spacing: 0.3px;
-            min-height: 80px;
-            border-top: 1px solid rgba(255, 180, 71, 0.3);
-            padding-top: 28px;
-            width: 80%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .progress-dots {
-            display: flex;
-            gap: 12px;
-            margin-top: 50px;
-        }
-        .dot {
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        .dot.active {
-            background: #ffb347;
-            width: 24px;
-            border-radius: 10px;
-        }
-        /* মূল কন্টেন্ট শুরুতে লুকানো */
-        .main-content {
-            opacity: 0;
-            transition: opacity 1.2s ease;
-        }
-        .main-content.show {
-            opacity: 1;
-        }
-        /* বাকি স্টাইল আগের মতোই (শুধু হালকা পরিবর্তন) */
-        .container { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
-        .glass-card {
-            background: rgba(15, 35, 55, 0.7);
-            backdrop-filter: blur(12px);
-            border-radius: 48px;
-            padding: 28px 24px;
-            margin-bottom: 28px;
-            transition: all 0.35s ease;
-            border: 1px solid rgba(0, 180, 255, 0.25);
-        }
-        .glass-card:hover {
-            transform: translateY(-6px);
-            background: rgba(20, 50, 75, 0.82);
-            border-color: rgba(0, 200, 255, 0.6);
-        }
-        .hero-glow {
-            background: linear-gradient(125deg, #021c2f, #033b5e, #026aa5);
-            border-radius: 56px;
-            padding: 32px 24px;
-            margin-bottom: 32px;
-            text-align: center;
-            border: 1px solid #00b4ff60;
-        }
-        .logo-area { display: flex; justify-content: center; margin-bottom: 18px; }
-        .uni-logo {
-            width: 85px; height: 85px; background: #ffd966; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 1.9rem; color: #01497c;
-            border: 2px solid #00e0ff;
-        }
-        .hero-glow h1 {
-            font-size: 1.7rem; font-weight: 700;
-            background: linear-gradient(135deg, #f0f9ff, #b3e4ff);
-            background-clip: text; -webkit-background-clip: text; color: transparent;
-        }
-        .hero-glow h2 { font-size: 1.3rem; font-weight: 500; color: #ffd966; margin-bottom: 16px; }
-        .section-head {
-            display: flex; align-items: center; gap: 14px;
-            margin-bottom: 26px; border-bottom: 2px solid #00b4ff; padding-bottom: 12px;
-        }
-        .section-head i { font-size: 1.8rem; color: #ffb347; }
-        .section-head h3 {
-            font-size: 1.7rem; font-weight: 700;
-            background: linear-gradient(125deg, #9cd4ff, #ffb347);
-            background-clip: text; -webkit-background-clip: text; color: transparent;
-        }
-        .chairman-area { display: flex; justify-content: center; margin-bottom: 40px; }
-        .chairman-card {
-            max-width: 320px; width: 100%;
-            background: #112b3f; border-radius: 40px; padding: 22px 16px;
-            text-align: center; border-bottom: 4px solid #ffb347;
-        }
-        .faculty-img {
-            width: 100px; height: 100px; background: #1f4e6e; border-radius: 50%;
-            margin: 0 auto 14px; display: flex; align-items: center; justify-content: center;
-            font-size: 2.2rem; border: 2px solid #00b4ff;
-        }
-        .horizontal-scroll-wrapper {
-            overflow-x: auto; overflow-y: hidden; white-space: nowrap;
-            padding-bottom: 16px; cursor: grab; scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-        .horizontal-scroll-wrapper::-webkit-scrollbar { height: 6px; }
-        .horizontal-scroll-wrapper::-webkit-scrollbar-track { background: #0f2f42; border-radius: 10px; }
-        .horizontal-scroll-wrapper::-webkit-scrollbar-thumb { background: #ffb347; border-radius: 10px; }
-        .faculty-horizontal-list { display: inline-flex; gap: 24px; padding-right: 20px; }
-        .other-card {
-            width: 260px; background: #0f2f42; border-radius: 32px; padding: 18px 14px;
-            text-align: center; white-space: normal; display: inline-block;
-            border-bottom: 2px solid #00b4ff;
-        }
-        .other-card:hover { transform: translateY(-4px); background: #0f3a4f; }
-        .other-card .faculty-img { width: 80px; height: 80px; font-size: 1.8rem; margin-bottom: 12px; }
-        .faculty-name { font-size: 1.1rem; font-weight: 700; color: white; }
-        .faculty-desig {
-            font-size: 0.7rem; font-weight: 600; background: #00b4ff30;
-            display: inline-block; padding: 4px 12px; border-radius: 40px;
-            margin: 8px 0; color: #ffdb9f;
-        }
-        .countdown-box {
-            background: #0b2b3dcc; backdrop-filter: blur(8px); border-radius: 60px;
-            padding: 16px; text-align: center; border: 1px solid #00ccff; margin-bottom: 28px;
-        }
-        .countdown-timer { font-size: 1.8rem; font-weight: 800; color: #ffb347; }
-        .list-icon { list-style: none; }
-        .list-icon li { margin-bottom: 14px; display: flex; align-items: center; gap: 14px; font-size: 0.95rem; }
-        .feature-grid { display: flex; flex-wrap: wrap; gap: 18px; margin: 20px 0; }
-        .feature-card { background: #0f2f42; border-radius: 28px; padding: 15px; flex: 1 1 170px; text-align: center; }
-        .feature-card i { font-size: 1.8rem; color: #ffb347; }
-        .btn-wa {
-            background: linear-gradient(95deg, #0f9b5e, #075e54);
-            display: flex; align-items: center; justify-content: center; gap: 12px;
-            width: 100%; padding: 14px; border-radius: 60px; font-weight: 700;
-            text-decoration: none; color: white; transition: 0.2s;
-        }
-        .btn-wa:hover { transform: scale(1.01); box-shadow: 0 8px 18px #0f9b5e80; }
-        .faq-item { border-left: 3px solid #ffb347; margin-bottom: 20px; padding-left: 16px; }
-        .faq-question { font-weight: 700; display: flex; gap: 10px; margin-bottom: 6px; color: #ffdeae; }
-        footer { text-align: center; font-size: 0.7rem; margin-top: 28px; color: #8db3cf; }
-        .animate-on-scroll { opacity: 0; transform: translateY(25px); transition: opacity 0.6s ease, transform 0.6s ease; }
-        .animate-on-scroll.revealed { opacity: 1; transform: translateY(0); }
-        @media (max-width: 640px) {
-            .welcome-type { font-size: 2rem; }
-            .slogan-type { font-size: 1rem; width: 90%; }
-            .chairman-card { max-width: 100%; }
-            .other-card { width: 240px; }
-        }
+        .welcome-screen.hide{opacity:0;visibility:hidden;}
+        .welcome-logo{width:120px;height:120px;margin-bottom:40px;animation:logoPulse 2s ease infinite;}
+        .welcome-logo img{width:100%;height:100%;object-fit:contain;}
+        @keyframes logoPulse{0%{transform:scale(0.95);opacity:0.8;}50%{transform:scale(1.08);opacity:1;}100%{transform:scale(0.95);opacity:0.8;}}
+        .welcome-type{font-size:3rem;font-weight:700;background:linear-gradient(135deg,#fff,#b3e4ff);background-clip:text;-webkit-background-clip:text;color:transparent;margin-bottom:32px;min-height:90px;}
+        .slogan-type{font-size:1.3rem;font-weight:400;color:rgba(255,255,255,0.8);min-height:70px;border-top:1px solid rgba(255,180,71,0.3);padding-top:24px;width:80%;max-width:500px;margin:0 auto;}
+        .progress-dots{display:flex;gap:12px;margin-top:40px;}
+        .dot{width:8px;height:8px;background:rgba(255,255,255,0.3);border-radius:50%;transition:all 0.3s;}
+        .dot.active{background:#ffb347;width:24px;border-radius:10px;}
+        .main-content{opacity:0;transition:opacity 1s ease;}
+        .main-content.show{opacity:1;}
+        .container{max-width:800px;margin:0 auto;}
+        .glass-card{background:rgba(15,35,55,0.7);backdrop-filter:blur(12px);border-radius:48px;padding:28px 24px;margin-bottom:28px;transition:all 0.35s ease;border:1px solid rgba(0,180,255,0.25);}
+        .glass-card:hover{transform:translateY(-6px);background:rgba(20,50,75,0.82);border-color:rgba(0,200,255,0.6);}
+        .hero-glow{background:linear-gradient(125deg,#021c2f,#033b5e,#026aa5);border-radius:56px;padding:32px 24px;margin-bottom:32px;text-align:center;border:1px solid #00b4ff60;}
+        .logo-area{display:flex;justify-content:center;margin-bottom:18px;}
+        .uni-logo{width:85px;height:85px;}
+        .uni-logo img{width:100%;height:100%;object-fit:contain;}
+        .hero-glow h1{font-size:1.7rem;font-weight:700;background:linear-gradient(135deg,#f0f9ff,#b3e4ff);background-clip:text;-webkit-background-clip:text;color:transparent;}
+        .hero-glow h2{font-size:1.3rem;font-weight:500;color:#ffd966;margin-bottom:16px;}
+        .type-badge{background:rgba(0,0,0,0.45);backdrop-filter:blur(8px);padding:8px 18px;border-radius:60px;display:inline-block;font-weight:600;font-size:1rem;border:1px solid #00b4ff;}
+        .section-head{display:flex;align-items:center;gap:14px;margin-bottom:26px;border-bottom:2px solid #00b4ff;padding-bottom:12px;}
+        .section-head i{font-size:1.8rem;color:#ffb347;}
+        .section-head h3{font-size:1.7rem;font-weight:700;background:linear-gradient(125deg,#9cd4ff,#ffb347);background-clip:text;-webkit-background-clip:text;color:transparent;}
+        .chairman-area{display:flex;justify-content:center;margin-bottom:40px;}
+        .chairman-card{max-width:320px;width:100%;background:#112b3f;border-radius:40px;padding:22px 16px;text-align:center;border-bottom:4px solid #ffb347;}
+        .faculty-img{width:100px;height:100px;background:#1f4e6e;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;border:2px solid #00b4ff;overflow:hidden;}
+        .faculty-img img{width:100%;height:100%;object-fit:cover;}
+        .horizontal-scroll-wrapper{overflow-x:auto;overflow-y:hidden;white-space:nowrap;padding-bottom:16px;cursor:grab;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
+        .horizontal-scroll-wrapper::-webkit-scrollbar{height:6px;}
+        .horizontal-scroll-wrapper::-webkit-scrollbar-track{background:#0f2f42;border-radius:10px;}
+        .horizontal-scroll-wrapper::-webkit-scrollbar-thumb{background:#ffb347;border-radius:10px;}
+        .faculty-horizontal-list{display:inline-flex;gap:24px;padding-right:20px;}
+        .other-card{width:280px;background:#0f2f42;border-radius:32px;padding:18px 14px;text-align:center;white-space:normal;display:inline-block;border-bottom:2px solid #00b4ff;}
+        .other-card .faculty-img{width:80px;height:80px;margin-bottom:12px;}
+        .faculty-name{font-size:1.1rem;font-weight:700;color:white;margin-bottom:4px;}
+        .faculty-desig{font-size:0.7rem;font-weight:600;background:#00b4ff30;display:inline-block;padding:4px 12px;border-radius:40px;margin:8px 0;color:#ffdb9f;}
+        .faculty-contact{font-size:0.7rem;color:#cadedf;margin-top:8px;word-break:break-all;}
+        .faculty-contact i{margin-right:6px;color:#ffb347;width:20px;}
+        .countdown-box{background:#0b2b3dcc;backdrop-filter:blur(8px);border-radius:60px;padding:16px;text-align:center;border:1px solid #00ccff;margin-bottom:28px;}
+        .countdown-timer{font-size:1.8rem;font-weight:800;color:#ffb347;}
+        .list-icon{list-style:none;}
+        .list-icon li{margin-bottom:14px;display:flex;align-items:center;gap:14px;font-size:0.95rem;}
+        .feature-grid{display:flex;flex-wrap:wrap;gap:18px;margin:20px 0;}
+        .feature-card{background:#0f2f42;border-radius:28px;padding:15px;flex:1 1 170px;text-align:center;}
+        .feature-card i{font-size:1.8rem;color:#ffb347;}
+        .btn-wa{background:linear-gradient(95deg,#0f9b5e,#075e54);display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:14px;border-radius:60px;font-weight:700;text-decoration:none;color:white;transition:0.2s;}
+        .btn-wa:hover{transform:scale(1.01);box-shadow:0 8px 18px #0f9b5e80;}
+        .faq-item{border-left:3px solid #ffb347;margin-bottom:20px;padding-left:16px;}
+        .faq-question{font-weight:700;display:flex;gap:10px;margin-bottom:6px;color:#ffdeae;}
+        footer{text-align:center;font-size:0.75rem;margin-top:28px;color:#8db3cf;border-top:1px solid #00b4ff30;padding-top:20px;}
+        .animate-on-scroll{opacity:0;transform:translateY(25px);transition:opacity 0.6s ease,transform 0.6s ease;}
+        .animate-on-scroll.revealed{opacity:1;transform:translateY(0);}
+        @media (max-width:640px){.welcome-type{font-size:2rem;}.slogan-type{font-size:1rem;}.other-card{width:260px;}}
     </style>
 </head>
 <body>
-    <!-- ওয়েলকাম অ্যানিমেশন স্ক্রিন - বাটন ছাড়া -->
+    <!-- ওয়েলকাম স্ক্রিন -->
     <div class="welcome-screen" id="welcomeScreen">
-        <div class="welcome-logo">IRE</div>
+        <div class="welcome-logo"><img src="images/ire-logo.png" alt="IRE Logo" onerror="this.style.display='none'"></div>
         <div class="welcome-type" id="welcomeTyping"></div>
         <div class="slogan-type" id="sloganTyping"></div>
-        <div class="progress-dots" id="progressDots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+        <div class="progress-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
     </div>
 
-    <!-- মূল ওয়েবসাইট -->
+    <!-- মূল কন্টেন্ট -->
     <div class="main-content" id="mainContent">
     <div class="container">
         <div class="hero-glow">
-            <div class="logo-area"><div class="uni-logo">UFTB</div></div>
+            <div class="logo-area"><div class="uni-logo"><img src="images/uftb-logo.png" alt="UFTB Logo" onerror="this.style.display='none'"></div></div>
             <h1>University of Frontier Technology, Bangladesh</h1>
-            <h2><i class="fas fa-microchip"></i> IoT & Robotics Engineering (IRE)</h2>
-            <div class="type-badge" style="background:rgba(0,0,0,0.45); padding:8px 18px; border-radius:60px; display:inline-block;">✨ ভর্তি পরীক্ষায় উত্তীর্ণ ✨</div>
+            <h2><i class="fas fa-microchip"></i> Internet of Things & Robotics Engineering (IRE)</h2>
+            <div class="type-badge">✨ ভর্তি পরীক্ষায় উত্তীর্ণ! ভর্তি প্রক্রিয়া সম্পন্ন করুন ✨</div>
         </div>
 
-        <div class="countdown-box animate-on-scroll">
-            <i class="fas fa-hourglass-half"></i> ভর্তি শেষ হতে বাকি: 
-            <div class="countdown-timer" id="countdownTimer"></div>
-            <div style="font-size: 0.75rem;">শেষ তারিখ: ১৫ জুন ২০২৬, সন্ধ্যা ৬:০০</div>
-        </div>
-
+        <!-- ভর্তি প্রক্রিয়া -->
         <div class="glass-card animate-on-scroll">
             <div class="section-head"><i class="fas fa-clipboard-list"></i><h3>ভর্তি প্রক্রিয়া</h3></div>
             <ul class="list-icon">
-                <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> অনলাইনে ৩০,০০০ টাকা ভর্তি ফি জমা দিন</li>
-                <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> ডকুমেন্ট আপলোড/জমা দিন</li>
-                <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> ভর্তি অফিস (কক্ষ-২০১)-এ স্পট ভেরিফিকেশন</li>
-                <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> ওরিয়েন্টেশনে রেজিস্ট্রেশন</li>
+                <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> অনলাইনে ৫,০০০ টাকা ভর্তি ফি জমা দিন</li>
+                <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> ডকুমেন্ট জমা দিন</li>
+                <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> ভর্তি অফিস (৩য় তলা)-এ স্পট ভেরিফিকেশন</li>
             </ul>
         </div>
 
+        <!-- প্রয়োজনীয় ডকুমেন্ট -->
         <div class="glass-card animate-on-scroll">
             <div class="section-head"><i class="fas fa-folder-open"></i><h3>প্রয়োজনীয় ডকুমেন্ট</h3></div>
             <ul class="list-icon">
                 <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> ভর্তি পরীক্ষার অ্যাডমিট কার্ডের কপি</li>
                 <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> এইচএসসি মার্কশীট ও সার্টিফিকেট</li>
-                <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> ৫ কপি পাসপোর্ট সাইজ ছবি</li>
+                <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> ৩ কপি পাসপোর্ট সাইজ ছবি</li>
                 <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> জাতীয় পরিচয়পত্র/জন্ম নিবন্ধন</li>
-                <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> চরিত্র সনদ</li>
+                <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> প্রশংসাপত্র</li>
             </ul>
         </div>
 
+        <!-- কেন আইআরই -->
         <div class="glass-card animate-on-scroll">
-            <div class="section-head"><i class="fas fa-star-of-life"></i><h3>কেন IoT & Robotics?</h3></div>
+            <div class="section-head"><i class="fas fa-star-of-life"></i><h3>কেন IoT & Robotics Engineering?</h3></div>
             <div class="feature-grid">
                 <div class="feature-card"><i class="fas fa-microchip"></i><br>৪র্থ শিল্পবিপ্লব</div>
                 <div class="feature-card"><i class="fas fa-laptop-code"></i><br>হ্যান্ডস-অন ল্যাব</div>
@@ -281,168 +132,168 @@
             </div>
         </div>
 
+        <!-- গুরুত্বপূর্ণ তারিখ -->
         <div class="glass-card animate-on-scroll">
             <div class="section-head"><i class="fas fa-calendar-alt"></i><h3>গুরুত্বপূর্ণ তারিখ</h3></div>
             <ul class="list-icon">
-                <li><i class="fas fa-calendar-check"></i> ওরিয়েন্টেশন: <strong>২৫ জুন ২০২৬</strong></li>
+                <li><i class="fas fa-calendar-check"></i> ওরিয়েন্টেশন: <strong>২৫ জুন ২০২৬</strong>, সকাল ১০টা</li>
                 <li><i class="fas fa-book-open"></i> ক্লাস শুরু: <strong>১ জুলাই ২০২৬</strong></li>
                 <li><i class="fas fa-home"></i> হোস্টেল আবেদন শেষ: <strong>২০ জুন ২০২৬</strong></li>
             </ul>
         </div>
 
+        <!-- সচরাচর জিজ্ঞাসা (FAQ) -->
         <div class="glass-card animate-on-scroll">
             <div class="section-head"><i class="fas fa-question-circle"></i><h3>সচরাচর জিজ্ঞাসা</h3></div>
-            <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ফি জমার রসিদ কোথায় জমা দেব?</div><div>ভর্তি অফিসে (রুম-২০১) অথবা অনলাইন পোর্টালে আপলোড করুন।</div></div>
+            <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ফি জমার রসিদ কোথায় জমা দেব?</div><div>ভর্তি অফিসে (৩য় তলা)</div></div>
             <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ল্যাব ফি আলাদা?</div><div>প্রথম সেমিস্টারে ভর্তি ফিতেই ল্যাব ফি অন্তর্ভুক্ত।</div></div>
-            <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ক্লাসের সময় কেমন?</div><div>সকাল ৮:৩০ - দুপুর ১:৩০ (শনি-বুধ), বৃহস্পতিব ল্যাব ডে।</div></div>
+            <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> সেমিস্টার ফি কত?</div><div>৫,৭৫০ টাকা</div></div>
+            <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> সেশন জট কেমন?</div><div>নেই</div></div>
         </div>
 
+        <!-- হোয়াটসঅ্যাপ হেল্পলাইন -->
         <div class="glass-card animate-on-scroll">
             <div class="section-head"><i class="fab fa-whatsapp"></i><h3>ভর্তি হেল্পলাইন</h3></div>
-            <div style="text-align:center; margin-bottom:16px;"><p><i class="fas fa-phone-alt"></i> ০১৯৮৮-৭৬৫৪৩২</p><p><i class="fas fa-envelope"></i> admission.ire@frontier.edu.bd</p></div>
-            <a href="https://wa.me/8801988765432?text=আমি%20আইআরইতে%20ভর্তি%20হতে%20চাই" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> ওয়াটসঅ্যাপ হেল্পলাইন</a>
+            <div style="text-align:center; margin-bottom:16px;"><p><i class="fas fa-phone-alt"></i> ০১৯৮৮-৭৬৫৪৩২</p><p><i class="fas fa-envelope"></i> admission.ire@uftb.ac.bd</p></div>
+            <a href="https://wa.me/8801988765432?text=আমি%20আইআরইতে%20ভর্তি%20হতে%20চাই" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ হেল্পলাইন</a>
         </div>
 
-        <!-- শিক্ষকমণ্ডলী -->
+        <!-- শিক্ষকমণ্ডলী সেকশন -->
         <div class="glass-card animate-on-scroll">
             <div class="section-head"><i class="fas fa-chalkboard-user"></i><h3>আমাদের শিক্ষকমণ্ডলী</h3></div>
             <div class="chairman-area">
                 <div class="chairman-card">
-                    <div class="faculty-img">📘</div>
-                    <div class="faculty-name">প্রফেসর ড. মো: শামীম রেজা</div>
-                    <div class="faculty-desig">বিভাগীয় চেয়ারম্যান</div>
-                    <div class="faculty-research">রোবোটিক কন্ট্রোল, AI, IoT সিকিউরিটি</div>
+                    <div class="faculty-img" id="chairmanImg"><i class="fas fa-user-tie"></i></div>
+                    <div class="faculty-name">Suman Saha</div>
+                    <div class="faculty-desig">Assistant Professor & Chairman</div>
+                    <div class="faculty-contact"><i class="fas fa-phone"></i> 01912127578</div>
+                    <div class="faculty-contact"><i class="fas fa-envelope"></i> suman0001@uftb.ac.bd</div>
                 </div>
             </div>
             <div class="horizontal-scroll-wrapper">
-                <div class="faculty-horizontal-list">
-                    <div class="other-card"><div class="faculty-img" style="width:70px; height:70px;">👩‍🔬</div><div class="faculty-name">ড. ফারজানা হক</div><div class="faculty-desig">অধ্যাপক</div></div>
-                    <div class="other-card"><div class="faculty-img" style="width:70px; height:70px;">🧪</div><div class="faculty-name">ড. ইফতেখার আহমেদ</div><div class="faculty-desig">সহযোগী অধ্যাপক</div></div>
-                    <div class="other-card"><div class="faculty-img" style="width:70px; height:70px;">🤖</div><div class="faculty-name">মো: সাদিকুল ইসলাম</div><div class="faculty-desig">সহকারী অধ্যাপক</div></div>
-                    <div class="other-card"><div class="faculty-img" style="width:70px; height:70px;">💡</div><div class="faculty-name">তানজিনা আক্তার</div><div class="faculty-desig">লেকচারার</div></div>
-                    <div class="other-card"><div class="faculty-img" style="width:70px; height:70px;">⚙️</div><div class="faculty-name">রবিউল হাসান</div><div class="faculty-desig">লেকচারার</div></div>
-                </div>
+                <div class="faculty-horizontal-list" id="facultyList"></div>
             </div>
         </div>
-        <footer>© ২০২৬ ইউনিভার্সিটি অফ ফ্রন্টিয়ার টেকনোলজি | IoT & Robotics Engineering</footer>
+
+        <footer>© ২০২৬ ইউনিভার্সিটি অফ ফ্রন্টিয়ার টেকনোলজি | Developed by Riyad Hossain (IRE 7th)</footer>
     </div>
     </div>
 
     <script>
-        const welcomeElement = document.getElementById('welcomeTyping');
-        const sloganElement = document.getElementById('sloganTyping');
-        const dots = document.querySelectorAll('.dot');
-        
-        const welcomeText = "Welcome to IRE";
-        const slogans = [
-            "Innovate the Future with IoT & Robotics",
-            "Shape a Smarter Tomorrow"
+        // ফ্যাকাল্টি ডাটা
+        const facultyData = [
+            { name:"Suman Saha", designation:"Assistant Professor & Chairman", phone:"01912127578", email:"suman0001@uftb.ac.bd", img:"suman-saha", isChairman:true },
+            { name:"Farzana Akter", designation:"Assistant Professor", phone:"01741582031", email:"farzana0001@uftb.ac.bd", img:"farzana-akter", isChairman:false },
+            { name:"Md. Toukir Ahmed", designation:"Assistant Professor", phone:"01738039128", email:"toukir0001@uftb.ac.bd", img:"toukir-ahmed", isChairman:false },
+            { name:"Sadia Enam", designation:"Assistant Professor", phone:"01986511690", email:"sadia0001@uftb.ac.bd", img:"sadia-enam", isChairman:false },
+            { name:"Fahmida Ahmed Antara", designation:"Assistant Professor", phone:"01924470784", email:"fahmida0001@uftb.ac.bd", img:"fahmida-antara", isChairman:false },
+            { name:"Md. Ashiqussalehin", designation:"Lecturer", phone:"01799776562", email:"ashiqussalehin0001@uftb.ac.bd", img:"ashiqussalehin", isChairman:false },
+            { name:"Md. Rafiqul Islam", designation:"Lecturer", phone:"01521108404", email:"rafiqul0001@uftb.ac.bd", img:"rafiqul-islam", isChairman:false },
+            { name:"Saurav Chandra Das", designation:"Lecturer", phone:"01521434695", email:"saurav0001@uftb.ac.bd", img:"saurav-das", isChairman:false },
+            { name:"Mostafiz Ahammed", designation:"Lecturer", phone:"01884307860", email:"mostafiz0001@uftb.ac.bd", img:"mostafiz", isChairman:false }
         ];
-        
-        let step = 0; // 0: welcome, 1: slogan1, 2: slogan2
-        let welcomeIndex = 0, sloganIndex = 0;
-        let isDeletingWelcome = false, isDeletingSlogan = false;
-        let currentSloganText = "";
-        
-        function updateDot(stepVal) {
-            dots.forEach((dot, i) => {
-                if(i === stepVal) dot.classList.add('active');
-                else dot.classList.remove('active');
-            });
-        }
-        
-        function typeWelcome() {
-            if (isDeletingWelcome) {
-                welcomeElement.innerText = welcomeText.substring(0, welcomeIndex - 1);
-                welcomeIndex--;
-                if (welcomeIndex === 0) {
-                    isDeletingWelcome = false;
-                    step = 1;
-                    updateDot(1);
-                    setTimeout(() => startSlogan(0), 400);
-                } else {
-                    setTimeout(typeWelcome, 45);
-                }
+
+        // চেয়ারম্যান ছবি
+        const chairmanDiv = document.getElementById('chairmanImg');
+        const chairImg = new Image();
+        chairImg.onload = () => { chairmanDiv.innerHTML = ''; chairmanDiv.appendChild(chairImg); };
+        chairImg.onerror = () => { chairmanDiv.innerHTML = '<i class="fas fa-user-tie"></i>'; };
+        chairImg.src = 'images/suman-saha.jpg';
+
+        // অন্যান্য শিক্ষক
+        const facultyContainer = document.getElementById('facultyList');
+        facultyData.filter(f => !f.isChairman).forEach(f => {
+            const card = document.createElement('div');
+            card.className = 'other-card';
+            card.innerHTML = `
+                <div class="faculty-img" id="img-${f.img}"><i class="fas fa-chalkboard-user"></i></div>
+                <div class="faculty-name">${f.name}</div>
+                <div class="faculty-desig">${f.designation}</div>
+                <div class="faculty-contact"><i class="fas fa-phone"></i> ${f.phone}</div>
+                <div class="faculty-contact"><i class="fas fa-envelope"></i> ${f.email}</div>
+            `;
+            facultyContainer.appendChild(card);
+            const imgDiv = card.querySelector(`#img-${f.img}`);
+            const img = new Image();
+            img.onload = () => { imgDiv.innerHTML = ''; imgDiv.appendChild(img); };
+            img.onerror = () => { imgDiv.innerHTML = '<i class="fas fa-chalkboard-user"></i>'; };
+            img.src = `images/${f.img}.jpg`;
+        });
+
+        // ওয়েলকাম অ্যানিমেশন (3-4 সেকেন্ড)
+        const welcomeEl = document.getElementById('welcomeTyping');
+        const sloganEl = document.getElementById('sloganTyping');
+        const dots = document.querySelectorAll('.dot');
+        const welcomeText = "Welcome to IRE";
+        const slogans = ["Innovate the Future with IoT & Robotics", "Shape a Smarter Tomorrow"];
+        let step = 0, wIdx = 0, sIdx = 0, delWelcome = false, delSlogan = false;
+        let currentSlogan = "";
+        function updateDot(s){ dots.forEach((d,i)=> i===s ? d.classList.add('active') : d.classList.remove('active')); }
+        function typeWelcome(){
+            if(delWelcome){
+                welcomeEl.innerText = welcomeText.substring(0, wIdx-1);
+                wIdx--;
+                if(wIdx===0){ delWelcome=false; step=1; updateDot(1); setTimeout(()=> startSlogan(0), 200); }
+                else setTimeout(typeWelcome, 30);
             } else {
-                welcomeElement.innerText = welcomeText.substring(0, welcomeIndex + 1);
-                welcomeIndex++;
-                if (welcomeIndex === welcomeText.length) {
-                    setTimeout(() => {
-                        isDeletingWelcome = true;
-                        setTimeout(typeWelcome, 1200);
-                    }, 800);
-                } else {
-                    setTimeout(typeWelcome, 70);
-                }
+                welcomeEl.innerText = welcomeText.substring(0, wIdx+1);
+                wIdx++;
+                if(wIdx===welcomeText.length){ setTimeout(()=> { delWelcome=true; setTimeout(typeWelcome, 500); }, 400); }
+                else setTimeout(typeWelcome, 50);
             }
         }
-        
-        function startSlogan(idx) {
-            if (idx >= slogans.length) {
-                // সব শেষ, ওয়েবসাইট দেখাও
-                setTimeout(() => {
-                    document.getElementById('welcomeScreen').classList.add('hide');
-                    document.getElementById('mainContent').classList.add('show');
-                }, 500);
+        function startSlogan(idx){
+            if(idx>=slogans.length){
+                setTimeout(()=> { document.getElementById('welcomeScreen').classList.add('hide'); document.getElementById('mainContent').classList.add('show'); }, 400);
                 return;
             }
-            currentSloganText = slogans[idx];
-            sloganIndex = 0;
-            isDeletingSlogan = false;
+            currentSlogan = slogans[idx];
+            sIdx=0; delSlogan=false;
             typeSlogan(idx);
         }
-        
-        function typeSlogan(idx) {
-            if (isDeletingSlogan) {
-                sloganElement.innerText = currentSloganText.substring(0, sloganIndex - 1);
-                sloganIndex--;
-                if (sloganIndex === 0) {
-                    isDeletingSlogan = false;
-                    startSlogan(idx + 1);
-                } else {
-                    setTimeout(() => typeSlogan(idx), 35);
-                }
+        function typeSlogan(idx){
+            if(delSlogan){
+                sloganEl.innerText = currentSlogan.substring(0, sIdx-1);
+                sIdx--;
+                if(sIdx===0){ delSlogan=false; startSlogan(idx+1); }
+                else setTimeout(()=> typeSlogan(idx), 25);
             } else {
-                sloganElement.innerText = currentSloganText.substring(0, sloganIndex + 1);
-                sloganIndex++;
-                if (sloganIndex === currentSloganText.length) {
-                    if (idx === slogans.length - 1) {
-                        // শেষ স্লোগান, ডিলিট না করে ওয়েবসাইট দেখাও
-                        setTimeout(() => {
-                            document.getElementById('welcomeScreen').classList.add('hide');
-                            document.getElementById('mainContent').classList.add('show');
-                        }, 1500);
+                sloganEl.innerText = currentSlogan.substring(0, sIdx+1);
+                sIdx++;
+                if(sIdx===currentSlogan.length){
+                    if(idx===slogans.length-1){
+                        setTimeout(()=> { document.getElementById('welcomeScreen').classList.add('hide'); document.getElementById('mainContent').classList.add('show'); }, 800);
                     } else {
-                        isDeletingSlogan = true;
-                        setTimeout(() => typeSlogan(idx), 1800);
+                        delSlogan=true;
+                        setTimeout(()=> typeSlogan(idx), 800);
                     }
                 } else {
-                    setTimeout(() => typeSlogan(idx), 55);
+                    setTimeout(()=> typeSlogan(idx), 40);
                 }
             }
         }
-        
-        // শুরু
         typeWelcome();
-        
+
         // কাউন্টডাউন
         function countdown(){
             const target = new Date(2026,5,15,18,0,0);
             const now = new Date();
             const diff = target-now;
             if(diff<=0){ document.getElementById('countdownTimer').innerHTML='ভর্তি শেষ'; return; }
-            const days = Math.floor(diff/(86400000));
+            const days = Math.floor(diff/86400000);
             const hours = Math.floor((diff%86400000)/3600000);
             const mins = Math.floor((diff%3600000)/60000);
             const secs = Math.floor((diff%60000)/1000);
             document.getElementById('countdownTimer').innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
         }
+        const timerDiv = document.createElement('div');
+        timerDiv.className = 'countdown-timer';
+        timerDiv.id = 'countdownTimer';
+        document.querySelector('.countdown-box').appendChild(timerDiv);
         countdown(); setInterval(countdown,1000);
-        
+
         // স্ক্রল অ্যানিমেশন
-        const obs = new IntersectionObserver((e)=>{
-            e.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('revealed'); obs.unobserve(entry.target); } });
-        },{threshold:0.15});
+        const obs = new IntersectionObserver((e)=>{ e.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('revealed'); obs.unobserve(entry.target); } }); },{threshold:0.15});
         document.querySelectorAll('.animate-on-scroll').forEach(el=>obs.observe(el));
     </script>
 </body>

@@ -28,7 +28,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ওয়েলকাম স্ক্রিন */
         .welcome-screen {
             position: fixed;
             top: 0;
@@ -82,7 +81,6 @@
             padding: 0 10px;
         }
 
-        /* মূল কন্টেন্ট */
         .main-content {
             opacity: 0;
             transition: opacity 0.8s ease;
@@ -207,7 +205,7 @@
             border-bottom: 4px solid #ffb347;
         }
 
-        .faculty-img {
+        .profile-img {
             width: 80px;
             height: 80px;
             background: #1f4e6e;
@@ -220,10 +218,22 @@
             overflow: hidden;
         }
 
-        .faculty-img img {
+        .profile-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .profile-img i {
+            font-size: 2.5rem;
+            color: #ffb347;
+        }
+
+        .scrollable-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .horizontal-scroll-wrapper {
@@ -234,6 +244,8 @@
             cursor: grab;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
+            flex: 1;
+            scrollbar-width: thin;
         }
 
         .horizontal-scroll-wrapper::-webkit-scrollbar {
@@ -250,7 +262,7 @@
             border-radius: 10px;
         }
 
-        .faculty-horizontal-list {
+        .faculty-horizontal-list, .student-horizontal-list {
             display: inline-flex;
             gap: 16px;
             padding-right: 16px;
@@ -265,18 +277,50 @@
             white-space: normal;
             display: inline-block;
             border-bottom: 2px solid #00b4ff;
+            transition: transform 0.2s;
         }
 
-        .other-card .faculty-img {
+        .other-card:hover {
+            transform: translateY(-5px);
+            background: #124663;
+        }
+
+        .student-card {
+            width: 220px;
+            background: #0f2f42;
+            border-radius: 28px;
+            padding: 14px 12px;
+            text-align: center;
+            white-space: normal;
+            display: inline-block;
+            border-bottom: 2px solid #ffb347;
+        }
+
+        .student-card:hover {
+            background: #1a4c6e;
+        }
+
+        .other-card .profile-img, .student-card .profile-img {
             width: 70px;
             height: 70px;
             margin-bottom: 10px;
+        }
+
+        .other-card .profile-img i, .student-card .profile-img i {
+            font-size: 2rem;
         }
 
         .faculty-name {
             font-size: 1rem;
             font-weight: 700;
             color: white;
+            margin-bottom: 4px;
+        }
+
+        .student-id {
+            font-size: 0.7rem;
+            color: #ffb347;
+            font-weight: 600;
             margin-bottom: 4px;
         }
 
@@ -302,6 +346,64 @@
             margin-right: 5px;
             color: #ffb347;
             width: 18px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: #cadedf;
+            background: #0b2b3d;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+
+        .social-links a.whatsapp:hover {
+            background: #25D366;
+            color: white;
+        }
+
+        .social-links a.facebook:hover {
+            background: #1877F2;
+            color: white;
+        }
+
+        .nav-btn {
+            background: rgba(0, 180, 255, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid #ffb347;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #ffb347;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .nav-btn:hover {
+            background: #ffb347;
+            color: #0a1928;
+            border-color: white;
         }
 
         .countdown-box {
@@ -354,27 +456,6 @@
             margin-bottom: 6px;
         }
 
-        .btn-wa {
-            background: linear-gradient(95deg, #0f9b5e, #075e54);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 12px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: white;
-            transition: 0.2s;
-        }
-
-        .btn-wa:hover {
-            transform: scale(1.01);
-            box-shadow: 0 8px 18px #0f9b5e80;
-        }
-
         .faq-item {
             border-left: 3px solid #ffb347;
             margin-bottom: 16px;
@@ -420,55 +501,46 @@
             transform: translateY(0);
         }
 
-        /* মোবাইলের জন্য স্পেসিফিক */
         @media (max-width: 640px) {
             body {
                 padding: 12px 10px 30px;
             }
-
             .welcome-type {
                 font-size: 1.5rem;
                 min-height: 70px;
             }
-
             .welcome-logo {
                 width: 80px;
                 height: 80px;
             }
-
             .hero-glow h1 {
                 font-size: 1.2rem;
             }
-
             .hero-glow h2 {
                 font-size: 1rem;
             }
-
             .section-head h3 {
                 font-size: 1.3rem;
             }
-
             .countdown-timer {
                 font-size: 1.1rem;
             }
-
-            .other-card {
-                width: 220px;
+            .other-card, .student-card {
+                width: 210px;
             }
-
             .chairman-card {
                 max-width: 260px;
                 padding: 14px 12px;
             }
-
-            .faculty-name {
-                font-size: 0.9rem;
+            .nav-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- ওয়েলকাম স্ক্রিন -->
     <div class="welcome-screen" id="welcomeScreen">
         <div class="welcome-logo">
             <img src="images/ire-logo.png" alt="IRE Logo" onerror="this.src='https://via.placeholder.com/100?text=IRE'">
@@ -476,7 +548,6 @@
         <div class="welcome-type" id="welcomeTyping"></div>
     </div>
 
-    <!-- মূল কন্টেন্ট -->
     <div class="main-content" id="mainContent">
         <div class="container">
             <div class="hero-glow">
@@ -496,7 +567,6 @@
                 <div style="font-size: 0.7rem;">শেষ তারিখ: ১৫ জুন ২০২৬, সন্ধ্যা ৬:০০</div>
             </div>
 
-            <!-- ভর্তি প্রক্রিয়া -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head">
                     <i class="fas fa-clipboard-list"></i>
@@ -510,7 +580,6 @@
                 </ul>
             </div>
 
-            <!-- প্রয়োজনীয় ডকুমেন্ট -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head">
                     <i class="fas fa-folder-open"></i>
@@ -525,7 +594,6 @@
                 </ul>
             </div>
 
-            <!-- কেন আইআরই -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head">
                     <i class="fas fa-star-of-life"></i>
@@ -539,7 +607,6 @@
                 </div>
             </div>
 
-            <!-- গুরুত্বপূর্ণ তারিখ -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head">
                     <i class="fas fa-calendar-alt"></i>
@@ -552,7 +619,6 @@
                 </ul>
             </div>
 
-            <!-- FAQ -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head">
                     <i class="fas fa-question-circle"></i>
@@ -576,20 +642,25 @@
                 </div>
             </div>
 
-            <!-- হোয়াটসঅ্যাপ হেল্পলাইন -->
+            <!-- STUDENT HELP DESK SECTION -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>ভর্তি হেল্পলাইন</h3>
+                    <i class="fas fa-users"></i>
+                    <h3>Student Help Desk</h3>
                 </div>
-                <div style="text-align:center; margin-bottom:14px;">
-                    <p style="font-size:0.85rem;"><i class="fas fa-phone-alt"></i> 01709130371</p>
-                    <p style="font-size:0.85rem;"><i class="fas fa-envelope"></i> 2401043@uftb.ac.bd</p>
+                <div style="margin-bottom: 8px; text-align:center;">
+                    <p style="font-size:0.75rem;"><i class="fas fa-info-circle"></i> বর্তমান আইআরই শিক্ষার্থীদের সাথে যোগাযোগ করুন</p>
                 </div>
-                <a href="https://wa.me/8801709130371?text=আমি%20IRE%20ভর্তি%20হতে%20চাই" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ হেল্পলাইন</a>
+                <div class="scrollable-wrapper">
+                    <div class="nav-btn" id="studentScrollLeftBtn"><i class="fas fa-chevron-left"></i></div>
+                    <div class="horizontal-scroll-wrapper" id="studentScrollWrapper">
+                        <div class="student-horizontal-list" id="studentList"></div>
+                    </div>
+                    <div class="nav-btn" id="studentScrollRightBtn"><i class="fas fa-chevron-right"></i></div>
+                </div>
             </div>
 
-            <!-- Faculty Members -->
+            <!-- Faculty Members Section -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head">
                     <i class="fas fa-chalkboard-user"></i>
@@ -597,15 +668,19 @@
                 </div>
                 <div class="chairman-area">
                     <div class="chairman-card">
-                        <div class="faculty-img" id="chairmanImg"><i class="fas fa-user-tie"></i></div>
+                        <div class="profile-img" id="chairmanImg"><i class="fas fa-user-tie"></i></div>
                         <div class="faculty-name">Suman Saha</div>
                         <div class="faculty-desig">Assistant Professor & Chairman</div>
                         <div class="faculty-contact"><i class="fas fa-phone"></i> 01912127578</div>
                         <div class="faculty-contact"><i class="fas fa-envelope"></i> suman0001@uftb.ac.bd</div>
                     </div>
                 </div>
-                <div class="horizontal-scroll-wrapper">
-                    <div class="faculty-horizontal-list" id="facultyList"></div>
+                <div class="scrollable-wrapper">
+                    <div class="nav-btn" id="facultyScrollLeftBtn"><i class="fas fa-chevron-left"></i></div>
+                    <div class="horizontal-scroll-wrapper" id="facultyScrollWrapper">
+                        <div class="faculty-horizontal-list" id="facultyList"></div>
+                    </div>
+                    <div class="nav-btn" id="facultyScrollRightBtn"><i class="fas fa-chevron-right"></i></div>
                 </div>
             </div>
 
@@ -617,53 +692,129 @@
     </div>
 
     <script>
-        // ফ্যাকাল্টি ডাটা
+        // ======================= STUDENT DATA =======================
+        // IRE 7th Batch (সেমিস্টার না, ব্যাচ)
+        const studentData = [
+            { name: "MD. FAHIM HOSSAIN SARKER", id: "2401016", phone: "+8801879168216", whatsapp: "8801879168216", facebook: "https://www.facebook.com/Fahim1747", batch: "IRE, 7th Batch", imgFileName: "fahim" },
+            { name: "AVIJIT DAS", id: "2401018", phone: "+8801602048836", whatsapp: "8801602048836", facebook: "https://www.facebook.com/avijit.das.517775", batch: "IRE, 7th Batch", imgFileName: "avijit" },
+            { name: "K. M. AKIB AZMAIN", id: "2401029", phone: "+8801581800504", whatsapp: "8801918902874", facebook: "https://www.facebook.com/mrperfect.zsn", batch: "IRE, 7th Batch", imgFileName: "akib" },
+            { name: "BADRITH TAMAM", id: "2401041", phone: "+8801875800469", whatsapp: "8801875800469", facebook: "https://www.facebook.com/badrith.tamam", batch: "IRE, 7th Batch", imgFileName: "badrith" },
+            { name: "MD SAFIN AHMED", id: "2401003", phone: "+8801614985614", whatsapp: "8801614985614", facebook: "https://www.facebook.com/shafin.rohan.56", batch: "IRE, 7th Batch", imgFileName: "safin" },
+            { name: "MD. SHAHIN ALAM", id: "2401025", phone: "+8801779266875", whatsapp: "8801779266875", facebook: "https://www.facebook.com/ShahinAlam.SAS420", batch: "IRE, 7th Batch", imgFileName: "shahin" }
+        ];
+
+        // ফাংশন: প্রোফাইল ছবি বা আইকন দেখানোর জন্য
+        function setProfileImage(container, imgFileName) {
+            const img = new Image();
+            img.onload = () => {
+                container.innerHTML = '';
+                container.appendChild(img);
+            };
+            img.onerror = () => {
+                container.innerHTML = '<i class="fas fa-user-graduate"></i>';
+            };
+            img.src = `images/${imgFileName}.jpg`;
+        }
+
+        const studentListDiv = document.getElementById('studentList');
+        studentData.forEach(student => {
+            const card = document.createElement('div');
+            card.className = 'student-card';
+            
+            // ওয়াটসঅ্যাপ লিংক - কোনো প্রি-ডিফাইন্ড মেসেজ ছাড়া
+            let waNumber = student.whatsapp.replace(/\s/g, '');
+            if (!waNumber.startsWith('880')) {
+                if (waNumber.startsWith('+880')) waNumber = waNumber.substring(1);
+                else if (waNumber.startsWith('0')) waNumber = '880' + waNumber.substring(1);
+            }
+            const waLink = `https://wa.me/${waNumber}`;
+            
+            card.innerHTML = `
+                <div class="profile-img" id="student-img-${student.imgFileName}"><i class="fas fa-user-graduate"></i></div>
+                <div class="faculty-name">${student.name}</div>
+                <div class="student-id"><i class="fas fa-id-card"></i> ID: ${student.id}</div>
+                <div class="faculty-desig"><i class="fas fa-users"></i> ${student.batch}</div>
+                <div class="faculty-contact"><i class="fas fa-phone-alt"></i> ${student.phone}</div>
+                <div class="social-links">
+                    <a href="${waLink}" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="${student.facebook}" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            `;
+            studentListDiv.appendChild(card);
+            
+            // ছবি লোড করার চেষ্টা (images/folder)
+            const imgDiv = card.querySelector(`#student-img-${student.imgFileName}`);
+            setProfileImage(imgDiv, student.imgFileName);
+        });
+
+        // ======================= FACULTY DATA =======================
         const facultyData = [
-            { name: "Suman Saha", designation: "Assistant Professor & Chairman", phone: "01912127578", email: "suman0001@uftb.ac.bd", img: "suman-saha", isChairman: true },
-            { name: "Farzana Akter", designation: "Assistant Professor", phone: "01741582031", email: "farzana0001@uftb.ac.bd", img: "farzana-akter", isChairman: false },
-            { name: "Md. Toukir Ahmed", designation: "Assistant Professor", phone: "01738039128", email: "toukir0001@uftb.ac.bd", img: "toukir-ahmed", isChairman: false },
-            { name: "Sadia Enam", designation: "Assistant Professor", phone: "01986511690", email: "sadia0001@uftb.ac.bd", img: "sadia-enam", isChairman: false },
-            { name: "Fahmida Ahmed Antara", designation: "Assistant Professor", phone: "01924470784", email: "fahmida0001@uftb.ac.bd", img: "fahmida-antara", isChairman: false },
-            { name: "Md. Ashiqussalehin", designation: "Lecturer", phone: "01799776562", email: "ashiqussalehin0001@uftb.ac.bd", img: "ashiqussalehin", isChairman: false },
-            { name: "Md. Rafiqul Islam", designation: "Lecturer", phone: "01521108404", email: "rafiqul0001@uftb.ac.bd", img: "rafiqul-islam", isChairman: false },
-            { name: "Saurav Chandra Das", designation: "Lecturer", phone: "01521434695", email: "saurav0001@uftb.ac.bd", img: "saurav-das", isChairman: false },
-            { name: "Mostafiz Ahammed", designation: "Lecturer", phone: "01884307860", email: "mostafiz0001@uftb.ac.bd", img: "mostafiz", isChairman: false }
+            { name: "Farzana Akter", designation: "Assistant Professor", phone: "01741582031", email: "farzana0001@uftb.ac.bd", imgFileName: "farzana" },
+            { name: "Md. Toukir Ahmed", designation: "Assistant Professor", phone: "01738039128", email: "toukir0001@uftb.ac.bd", imgFileName: "toukir" },
+            { name: "Sadia Enam", designation: "Assistant Professor", phone: "01986511690", email: "sadia0001@uftb.ac.bd", imgFileName: "sadia" },
+            { name: "Fahmida Ahmed Antara", designation: "Assistant Professor", phone: "01924470784", email: "fahmida0001@uftb.ac.bd", imgFileName: "fahmida" },
+            { name: "Md. Ashiqussalehin", designation: "Lecturer", phone: "01799776562", email: "ashiqussalehin0001@uftb.ac.bd", imgFileName: "ashiqussalehin" },
+            { name: "Md. Rafiqul Islam", designation: "Lecturer", phone: "01521108404", email: "rafiqul0001@uftb.ac.bd", imgFileName: "rafiqul" },
+            { name: "Saurav Chandra Das", designation: "Lecturer", phone: "01521434695", email: "saurav0001@uftb.ac.bd", imgFileName: "saurav" },
+            { name: "Mostafiz Ahammed", designation: "Lecturer", phone: "01884307860", email: "mostafiz0001@uftb.ac.bd", imgFileName: "mostafiz" }
         ];
 
         // চেয়ারম্যান ছবি
         const chairmanImgDiv = document.getElementById('chairmanImg');
-        const chairmanImg = new Image();
-        chairmanImg.onload = () => { chairmanImgDiv.innerHTML = ''; chairmanImgDiv.appendChild(chairmanImg); };
-        chairmanImg.onerror = () => { chairmanImgDiv.innerHTML = '<i class="fas fa-user-tie"></i>'; };
-        chairmanImg.src = 'images/suman-saha.jpg';
+        function setChairmanImage() {
+            const img = new Image();
+            img.onload = () => {
+                chairmanImgDiv.innerHTML = '';
+                chairmanImgDiv.appendChild(img);
+            };
+            img.onerror = () => {
+                chairmanImgDiv.innerHTML = '<i class="fas fa-user-tie"></i>';
+            };
+            img.src = 'images/suman-saha.jpg';
+        }
+        setChairmanImage();
 
-        // অন্যান্য শিক্ষক
         const facultyListDiv = document.getElementById('facultyList');
         facultyData.forEach(fac => {
-            if (!fac.isChairman) {
-                const card = document.createElement('div');
-                card.className = 'other-card';
-                card.innerHTML = `
-                    <div class="faculty-img" id="img-${fac.img}"><i class="fas fa-chalkboard-user"></i></div>
-                    <div class="faculty-name">${fac.name}</div>
-                    <div class="faculty-desig">${fac.designation}</div>
-                    <div class="faculty-contact"><i class="fas fa-phone"></i> ${fac.phone}</div>
-                    <div class="faculty-contact"><i class="fas fa-envelope"></i> ${fac.email}</div>
-                `;
-                facultyListDiv.appendChild(card);
-                const imgDiv = card.querySelector(`#img-${fac.img}`);
-                const img = new Image();
-                img.onload = () => { imgDiv.innerHTML = ''; imgDiv.appendChild(img); };
-                img.onerror = () => { imgDiv.innerHTML = '<i class="fas fa-chalkboard-user"></i>'; };
-                img.src = `images/${fac.img}.jpg`;
-            }
+            const card = document.createElement('div');
+            card.className = 'other-card';
+            card.innerHTML = `
+                <div class="profile-img" id="faculty-img-${fac.imgFileName}"><i class="fas fa-chalkboard-user"></i></div>
+                <div class="faculty-name">${fac.name}</div>
+                <div class="faculty-desig">${fac.designation}</div>
+                <div class="faculty-contact"><i class="fas fa-phone"></i> ${fac.phone}</div>
+                <div class="faculty-contact"><i class="fas fa-envelope"></i> ${fac.email}</div>
+            `;
+            facultyListDiv.appendChild(card);
+            const imgDiv = card.querySelector(`#faculty-img-${fac.imgFileName}`);
+            const img = new Image();
+            img.onload = () => {
+                imgDiv.innerHTML = '';
+                imgDiv.appendChild(img);
+            };
+            img.onerror = () => {
+                imgDiv.innerHTML = '<i class="fas fa-chalkboard-user"></i>';
+            };
+            img.src = `images/${fac.imgFileName}.jpg`;
         });
 
-        // ওয়েলকাম অ্যানিমেশন
+        // ======================= SCROLL BUTTONS =======================
+        function initScrollControls(scrollWrapperId, leftBtnId, rightBtnId) {
+            const wrapper = document.getElementById(scrollWrapperId);
+            if (!wrapper) return;
+            const leftBtn = document.getElementById(leftBtnId);
+            const rightBtn = document.getElementById(rightBtnId);
+            const scrollStep = 260;
+            if (leftBtn) leftBtn.addEventListener('click', () => wrapper.scrollBy({ left: -scrollStep, behavior: 'smooth' }));
+            if (rightBtn) rightBtn.addEventListener('click', () => wrapper.scrollBy({ left: scrollStep, behavior: 'smooth' }));
+        }
+        initScrollControls('facultyScrollWrapper', 'facultyScrollLeftBtn', 'facultyScrollRightBtn');
+        initScrollControls('studentScrollWrapper', 'studentScrollLeftBtn', 'studentScrollRightBtn');
+
+        // ======================= WELCOME TYPING =======================
         const welcomeEl = document.getElementById('welcomeTyping');
         const texts = ["Welcome to IRE", "Innovate the Future with IoT & Robotics"];
         let textIndex = 0, charIndex = 0, isDeleting = false;
-
         function typeEffect() {
             const currentText = texts[textIndex];
             if (isDeleting) {
@@ -680,23 +831,19 @@
                         return;
                     }
                     setTimeout(typeEffect, 200);
-                } else {
-                    setTimeout(typeEffect, 30);
-                }
+                } else setTimeout(typeEffect, 30);
             } else {
                 welcomeEl.innerText = currentText.substring(0, charIndex + 1);
                 charIndex++;
                 if (charIndex === currentText.length) {
                     isDeleting = true;
                     setTimeout(typeEffect, 1000);
-                } else {
-                    setTimeout(typeEffect, 50);
-                }
+                } else setTimeout(typeEffect, 50);
             }
         }
         typeEffect();
 
-        // কাউন্টডাউন
+        // ======================= COUNTDOWN =======================
         function countdown() {
             const target = new Date(2026, 5, 15, 18, 0, 0);
             const now = new Date();
@@ -711,7 +858,7 @@
         countdown();
         setInterval(countdown, 1000);
 
-        // স্ক্রল অ্যানিমেশন
+        // ======================= SCROLL ANIMATION =======================
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {

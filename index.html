@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>IRE Admission 2026 | UFTB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(-45deg, #0a1928, #0b2b3d, #0a1f2e, #0c2c3f);
+            background-size: 400% 400%;
+            animation: galaxyShift 18s ease infinite;
+            color: #eef4ff;
+            padding: 12px 12px 30px;
+            min-height: 100vh;
+        }
+
+        @keyframes galaxyShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, #021c2f, #010a14);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            text-align: center;
+            padding: 20px;
+        }
+        .welcome-screen.hide { opacity: 0; visibility: hidden; }
+
+        .welcome-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            animation: logoPulse 2s ease infinite;
+        }
+        .welcome-logo img { width: 100%; height: 100%; object-fit: contain; }
+        @keyframes logoPulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .welcome-type {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #b3e4ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            min-height: 70px;
+            padding: 0 15px;
+        }
+
+        .main-content {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .main-content.show { opacity: 1; }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* কার্ড স্টাইল */
+        .glass-card {
+            background: rgba(15, 35, 55, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 18px 16px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(0, 180, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .hero-glow {
+            background: linear-gradient(125deg, #021c2f, #033b5e, #026aa5);
+            border-radius: 28px;
+            padding: 20px 16px;
+            margin-bottom: 22px;
+            text-align: center;
+            border: 1px solid #00b4ff60;
+        }
+
+        .logo-area { display: flex; justify-content: center; margin-bottom: 12px; }
+        .uni-logo { width: 65px; height: 65px; }
+        .uni-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+        .hero-glow h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f0f9ff, #b3e4ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .hero-glow h2 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #ffd966;
+            margin-bottom: 10px;
+        }
+        .type-badge {
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+            padding: 5px 12px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.75rem;
+            border: 1px solid #00b4ff;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #00b4ff;
+            padding-bottom: 8px;
+        }
+        .section-head i { font-size: 1.4rem; color: #ffb347; }
+        .section-head h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(125deg, #9cd4ff, #ffb347);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* বুলেট লিস্ট - প্রফেশনাল এবং লাইন ব্রেক সঠিক */
+        .bullet-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .bullet-list li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+            font-size: 0.85rem;
+            align-items: flex-start;
+            text-align: left;
+            word-break: normal;
+            white-space: normal;
+            overflow-wrap: break-word;
+        }
+        .bullet-list li i { margin-top: 2px; flex-shrink: 0; }
+        .bullet-list li a {
+            color: #ffb347;
+            text-decoration: underline;
+            word-break: break-word;
+        }
+
+        /* গ্রিড ফিচার */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 16px 0 8px;
+        }
+        .feature-card {
+            background: #0f2f42;
+            border-radius: 20px;
+            padding: 12px 6px;
+            text-align: center;
+            font-size: 0.75rem;
+            transition: 0.2s;
+        }
+        .feature-card i {
+            font-size: 1.4rem;
+            color: #ffb347;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-left: 3px solid #ffb347;
+            margin-bottom: 16px;
+            padding-left: 12px;
+        }
+        .faq-question {
+            font-weight: 700;
+            display: flex;
+            gap: 8px;
+            margin-bottom: 5px;
+            color: #ffdeae;
+            font-size: 0.85rem;
+        }
+        .faq-item div:last-child {
+            font-size: 0.8rem;
+            line-height: 1.45;
+            color: #e0edf5;
+        }
+
+        /* টেবুলার সময়সূচী (সার্কুলার অনুযায়ী) */
+        .date-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+            margin-top: 8px;
+        }
+        .date-table th, .date-table td {
+            border: 1px solid rgba(0,180,255,0.4);
+            padding: 8px 6px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .date-table th {
+            background: #0f2f42;
+            color: #ffb347;
+            font-weight: 600;
+        }
+
+        /* চেয়ারম্যান ও স্ক্রল কার্ড */
+        .chairman-area { display: flex; justify-content: center; margin-bottom: 24px; }
+        .chairman-card {
+            max-width: 260px;
+            width: 100%;
+            background: #112b3f;
+            border-radius: 28px;
+            padding: 16px 12px;
+            text-align: center;
+            border-bottom: 4px solid #ffb347;
+        }
+        .profile-img {
+            width: 70px;
+            height: 70px;
+            background: #1f4e6e;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #00b4ff;
+            overflow: hidden;
+        }
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-img i { font-size: 2rem; color: #ffb347; }
+
+        .scrollable-wrapper { display: flex; align-items: center; gap: 6px; }
+        .horizontal-scroll-wrapper {
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding-bottom: 8px;
+            scroll-behavior: smooth;
+            flex: 1;
+            scrollbar-width: thin;
+        }
+        .horizontal-scroll-wrapper::-webkit-scrollbar { height: 3px; }
+        .faculty-horizontal-list, .student-horizontal-list { display: inline-flex; gap: 12px; padding-right: 12px; }
+        .other-card, .student-card {
+            width: 210px;
+            background: #0f2f42;
+            border-radius: 22px;
+            padding: 12px 10px;
+            text-align: center;
+            white-space: normal;
+            display: inline-block;
+            border-bottom: 2px solid #00b4ff;
+        }
+        .student-card { border-bottom-color: #ffb347; }
+        .other-card .profile-img, .student-card .profile-img { width: 60px; height: 60px; margin-bottom: 8px; }
+        .faculty-name { font-size: 0.9rem; font-weight: 700; color: white; margin-bottom: 4px; }
+        .student-id { font-size: 0.65rem; color: #ffb347; font-weight: 600; }
+        .faculty-desig { font-size: 0.6rem; background: #00b4ff30; display: inline-block; padding: 2px 8px; border-radius: 30px; margin: 5px 0; }
+        .faculty-contact { font-size: 0.6rem; color: #cadedf; margin-top: 5px; word-break: break-word; }
+        .social-links { display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
+        .social-links a {
+            background: #0b2b3d;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #cadedf;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+        .nav-btn {
+            background: rgba(0, 180, 255, 0.3);
+            border: 1px solid #ffb347;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #ffb347;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .countdown-box {
+            background: #0b2b3dcc;
+            backdrop-filter: blur(8px);
+            border-radius: 28px;
+            padding: 14px;
+            text-align: center;
+            border: 1px solid #00ccff;
+            margin-bottom: 18px;
+        }
+        .countdown-timer { font-size: 1.2rem; font-weight: 800; color: #ffb347; }
+        footer { text-align: center; font-size: 0.65rem; margin-top: 20px; color: #8db3cf; }
+        .footer-credit { margin-top: 5px; font-size: 0.6rem; color: #ffb347; }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .animate-on-scroll.revealed { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 500px) {
+            body { padding: 10px; }
+            .glass-card { padding: 14px 12px; }
+            .bullet-list li { font-size: 0.75rem; gap: 8px; margin-bottom: 14px; }
+            .section-head h3 { font-size: 1.1rem; }
+            .countdown-timer { font-size: 1rem; }
+            .feature-card { font-size: 0.7rem; padding: 8px 4px; }
+            .other-card, .student-card { width: 185px; }
+            .nav-btn { width: 28px; height: 28px; }
+            .date-table th, .date-table td { font-size: 0.7rem; padding: 6px 4px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-logo"><img src="images/ire-logo.png" alt="IRE Logo" onerror="this.src='https://via.placeholder.com/80?text=IRE'"></div>
+        <div class="welcome-type" id="welcomeTyping"></div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <div class="container">
+            <div class="hero-glow">
+                <div class="logo-area"><div class="uni-logo"><img src="images/uftb-logo.png" alt="UFTB Logo" onerror="this.src='https://via.placeholder.com/65?text=UFTB'"></div></div>
+                <h1>University of Frontier Technology, Bangladesh</h1>
+                <h2><i class="fas fa-microchip"></i> Internet of Things & Robotics Engineering (IRE)</h2>
+                <div class="type-badge">✨ GST ভর্তি পরীক্ষায় উত্তীর্ণ! প্রাথমিক ভর্তি প্রক্রিয়া শুরু ✨</div>
+            </div>
+
+            <div class="countdown-box animate-on-scroll">
+                <i class="fas fa-hourglass-half"></i> প্রাথমিক ভর্তি ও ফি প্রদানের শেষ সময়:
+                <div class="countdown-timer" id="countdownTimer"></div>
+                <div style="font-size: 0.7rem;">শেষ তারিখ: ১০ জুন ২০২৬, রাত ১১:৫৯</div>
+            </div>
+
+            <!-- সার্কুলার অনুযায়ী ভর্তি প্রক্রিয়া -->
+            <div class="glass-card animate-on-scroll">
+                <div class="section-head"><i class="fas fa-clipboard-list"></i><h3>প্রাথমিক ভর্তি প্রক্রিয়া (GST)</h3></div>
+                <ul class="bullet-list">
+                    <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> <strong>অনলাইন ফি প্রদান:</strong> ৫,০০০/- (পাঁচ হাজার টাকা) প্রদানের সময়সীমা <strong>০৭/০৬/২০২৬, দুপুর ১২:০০ টা</strong> থেকে <strong>১০/০৬/২০২৬, রাত ১১:৫৯ টা</strong> পর্যন্ত।</li>
+                    <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> GST ওয়েবসাইট: <a href="https://gstadmission.ac.bd/" target="_blank">gstadmission.ac.bd</a> - এ অনলাইনে ফি জমা দিন।</li>
+                    <li><i class="fas fa-arrow-right" style="color:#ffb347;"></i> ফি প্রদানের পর প্রাথমিক ভর্তি নিশ্চিত করতে নিচের নিয়মে মূল কাগজপত্র জমা দিতে হবে।</li>
+                </ul>
+            </div>
+
+            <!-- মূল কাগজপত্র জমা (হুবহু সার্কুলার) -->
+            <div class="glass-card animate-on-scroll">
+                <div class="section-head"><i class="fas fa-folder-open"></i><h3>মূল কাগজপত্র জমার নিয়ম</h3></div>
+                <ul class="bullet-list">
+                    <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> অনলাইনে ফি প্রদানকারী শিক্ষার্থীদের <strong>এসএসসি/সমমান ও এইচএসসি/সমমান পরীক্ষার মূল নম্বরপত্র (Mark Sheet/Grade Sheet)</strong> একটি A4 সাইজের খামে ভরে খামের উপর GST রোল নম্বর লিখে নিম্নোক্ত সময়সূচী অনুযায়ী জমা দিতে হবে।</li>
+                    <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> <strong>জমাদানের স্থান:</strong> একাডেমিক ভবন-১, ইউনিভার্সিটি অব ক্রিয়েটিভ টেকনোলজি, বাংলাদেশ (কাপাসিয়া, গাজীপুর-১৭৫০)</li>
+                    <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> কাগজপত্র জমা দেওয়ার সময় অবশ্যই পরীক্ষার <strong>মূল প্রবেশপত্র</strong> দেখাতে হবে।</li>
+                    <li><i class="fas fa-check-circle" style="color:#5fcc9e;"></i> জমা দেওয়ার পর একাডেমিক কমিটি কর্তৃক স্বাক্ষর ও সিল দেওয়া <strong>জমাদান স্লিপ</strong> সংগ্রহ করে রাখতে হবে।</li>
+                </ul>
+                
+                <!-- সময়সূচী টেবিল -->
+                <table class="date-table">
+                    <thead>
+                        <tr><th>তারিখ</th><th>বার</th><th>সময়</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>০৮/০৬/২০২৬</td><td>সোমবার</td><td rowspan="4">সকাল ১০:০০ টা থেকে বিকাল ০৩:০০ টা</td></tr>
+                        <tr><td>০৯/০৬/২০২৬</td><td>মঙ্গলবার</td></tr>
+                        <tr><td>১০/০৬/২০২৬</td><td>বুধবার</td></tr>
+                        <tr><td>১১/০৬/২০২৬</td><td>বৃহস্পতিবার</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size:0.7rem; margin-top:10px;"><i class="fas fa-info-circle"></i> নির্ধারিত সময়ের মধ্যে কাগজপত্র জমা দিতে ব্যর্থ হলে প্রাথমিক ভর্তি বাতিল বলে গণ্য হবে।</p>
+            </div>
+
+            <!-- গুরুত্বপূর্ণ তারিখ -->
+            <div class="glass-card animate-on-scroll">
+                <div class="section-head"><i class="fas fa-calendar-alt"></i><h3>গুরুত্বপূর্ণ তারিখ</h3></div>
+                <ul class="bullet-list">
+                    <li><i class="fas fa-calendar-check"></i> অনলাইন ফি প্রদান: <strong>০৭-১০ জুন ২০২৬</strong></li>
+                    <li><i class="fas fa-file-alt"></i> মূল কাগজপত্র জমা: <strong>০৮-১১ জুন ২০২৬</strong> (সকাল ১০:০০ - বিকাল ০৩:০০)</li>
+                    <li><i class="fas fa-chalkboard-user"></i> ওরিয়েন্টেশন: <strong>পরে জানানো হবে</strong></li>
+                    <li><i class="fas fa-book-open"></i> ক্লাস শুরু: <strong>পরে জানানো হবে</strong></li>
+                </ul>
+            </div>
+
+            <!-- কেন আইওটি অ্যান্ড রোবটিক্স -->
+            <div class="glass-card animate-on-scroll">
+                <div class="section-head"><i class="fas fa-star-of-life"></i><h3>কেন IoT & Robotics Engineering?</h3></div>
+                <div class="feature-grid">
+                    <div class="feature-card"><i class="fas fa-microchip"></i>৪র্থ শিল্পবিপ্লব</div>
+                    <div class="feature-card"><i class="fas fa-laptop-code"></i>হ্যান্ডস-অন ল্যাব</div>
+                    <div class="feature-card"><i class="fas fa-chalkboard-user"></i>শিল্প সংযোগ</div>
+                    <div class="feature-card"><i class="fas fa-flask"></i>গবেষণা</div>
+                </div>
+            </div>
+
+            <!-- FAQ (প্রশ্নোত্তর) -->
+            <div class="glass-card animate-on-scroll">
+                <div class="section-head"><i class="fas fa-question-circle"></i><h3>সচরাচর জিজ্ঞাসা</h3></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> UFTB তে পড়লে future কেমন?</div><div>“তুমি যেখানেই পড়ো future তোমার নিজের উপর নির্ভর করে। UFTB-এর perspective থেকে বলতে গেলে, এখান থেকে অনেকেই ভালো ভালো জায়গায় গেছে। আর যদি ভবিষ্যতে বাইরে পড়ার পরিকল্পনা থাকে, তাহলে আমি মনে করি এটা একটা ভালো অপশন।”</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> টিউশন সুবিধা কেমন?</div><div>“টিউশন নেই এমনটা না। পেতে চাইলে শুরুতে নেটওয়ার্কিং লাগবে, পাবেন তবে যথেষ্ট সময় এবং ধৈর্য নিয়ে চেষ্টা করতে হবে।”</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ভর্তি হতে কি প্রশংসাপত্র লাগবে?</div><div>“চূড়ান্ত ভর্তির সময় লাগবে।”</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> কী কী ইকুইপমেন্ট কেনা লাগবে? ল্যাপটপ কি শুরু থেকে লাগবে?</div><div>“As an Engineering Student, Laptop is a must.”</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ল্যাব ফি আলাদা?</div><div>প্রথম সেমিস্টারে ভর্তি ফিতেই ল্যাব ফি অন্তর্ভুক্ত।</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> সেমিস্টার ফি কত?</div><div><strong>৫,৭৫০ টাকা</strong></div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> সেশন জট কেমন?</div><div><strong>নেই</strong></div></div>
+            </div>
+
+            <!-- Student Help Desk -->
+            <div class="glass-card animate-on-scroll">
+                <div class="section-head"><i class="fas fa-users"></i><h3>Student Help Desk</h3></div>
+                <div style="text-align:center; margin-bottom:8px;"><p style="font-size:0.7rem;"><i class="fas fa-info-circle"></i> বর্তমান IRE শিক্ষার্থীদের সাথে যোগাযোগ করুন</p></div>
+                <div class="scrollable-wrapper">
+                    <div class="nav-btn" id="studentScrollLeftBtn"><i class="fas fa-chevron-left"></i></div>
+                    <div class="horizontal-scroll-wrapper" id="studentScrollWrapper"><div class="student-horizontal-list" id="studentList"></div></div>
+                    <div class="nav-btn" id="studentScrollRightBtn"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+
+            <!-- Faculty Members -->
+            <div class="glass-card animate-on-scroll">
+                <div class="section-head"><i class="fas fa-chalkboard-user"></i><h3>Faculty Members</h3></div>
+                <div class="chairman-area"><div class="chairman-card"><div class="profile-img" id="chairmanImg"><i class="fas fa-user-tie"></i></div><div class="faculty-name">Suman Saha</div><div class="faculty-desig">Assistant Professor & Chairman</div><div class="faculty-contact"><i class="fas fa-phone"></i> 01912127578</div><div class="faculty-contact"><i class="fas fa-envelope"></i> suman0001@uftb.ac.bd</div></div></div>
+                <div class="scrollable-wrapper">
+                    <div class="nav-btn" id="facultyScrollLeftBtn"><i class="fas fa-chevron-left"></i></div>
+                    <div class="horizontal-scroll-wrapper" id="facultyScrollWrapper"><div class="faculty-horizontal-list" id="facultyList"></div></div>
+                    <div class="nav-btn" id="facultyScrollRightBtn"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+
+            <footer>
+                University of Frontier Technology, Bangladesh | Internet of Things & Robotics Engineering (IRE)<br>
+                <span class="footer-credit">🔧 Developed by Riyad Hossen (IRE 7th)</span>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Student Data (IRE 7th Batch)
+        const studentData = [
+            { name: "MD. FAHIM HOSSAIN SARKER", id: "2401016", phone: "+8801879168216", whatsapp: "8801879168216", facebook: "https://www.facebook.com/Fahim1747", batch: "IRE, 7th Batch", imgFileName: "fahim" },
+            { name: "AVIJIT DAS", id: "2401018", phone: "+8801602048836", whatsapp: "8801602048836", facebook: "https://www.facebook.com/avijit.das.517775", batch: "IRE, 7th Batch", imgFileName: "avijit" },
+            { name: "K. M. AKIB AZMAIN", id: "2401029", phone: "+8801581800504", whatsapp: "8801918902874", facebook: "https://www.facebook.com/mrperfect.zsn", batch: "IRE, 7th Batch", imgFileName: "akib" },
+            { name: "BADRITH TAMAM", id: "2401041", phone: "+8801875800469", whatsapp: "8801875800469", facebook: "https://www.facebook.com/badrith.tamam", batch: "IRE, 7th Batch", imgFileName: "badrith" },
+            { name: "MD SAFIN AHMED", id: "2401003", phone: "+8801614985614", whatsapp: "8801614985614", facebook: "https://www.facebook.com/shafin.rohan.56", batch: "IRE, 7th Batch", imgFileName: "safin" },
+            { name: "MD. SHAHIN ALAM", id: "2401025", phone: "+8801779266875", whatsapp: "8801779266875", facebook: "https://www.facebook.com/ShahinAlam.SAS420", batch: "IRE, 7th Batch", imgFileName: "shahin" }
+        ];
+
+        function setProfileImage(container, imgFileName) {
+            const img = new Image();
+            img.onload = () => { container.innerHTML = ''; container.appendChild(img); };
+            img.onerror = () => { container.innerHTML = '<i class="fas fa-user-graduate"></i>'; };
+            img.src = `images/${imgFileName}.jpg`;
+        }
+
+        const studentListDiv = document.getElementById('studentList');
+        studentData.forEach(s => {
+            const card = document.createElement('div');
+            card.className = 'student-card';
+            let wa = s.whatsapp.replace(/\s/g, '');
+            if (!wa.startsWith('880')) {
+                if (wa.startsWith('+880')) wa = wa.substring(1);
+                else if (wa.startsWith('0')) wa = '880' + wa.substring(1);
+            }
+            card.innerHTML = `<div class="profile-img" id="student-img-${s.imgFileName}"><i class="fas fa-user-graduate"></i></div><div class="faculty-name">${s.name}</div><div class="student-id"><i class="fas fa-id-card"></i> ID: ${s.id}</div><div class="faculty-desig"><i class="fas fa-users"></i> ${s.batch}</div><div class="faculty-contact"><i class="fas fa-phone-alt"></i> ${s.phone}</div><div class="social-links"><a href="https://wa.me/${wa}" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="${s.facebook}" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a></div>`;
+            studentListDiv.appendChild(card);
+            setProfileImage(card.querySelector(`#student-img-${s.imgFileName}`), s.imgFileName);
+        });
+
+        // Faculty data
+        const facultyData = [
+            { name: "Farzana Akter", designation: "Assistant Professor", phone: "01741582031", email: "farzana0001@uftb.ac.bd", imgFileName: "farzana" },
+            { name: "Md. Toukir Ahmed", designation: "Assistant Professor", phone: "01738039128", email: "toukir0001@uftb.ac.bd", imgFileName: "toukir" },
+            { name: "Sadia Enam", designation: "Assistant Professor", phone: "01986511690", email: "sadia0001@uftb.ac.bd", imgFileName: "sadia" },
+            { name: "Fahmida Ahmed Antara", designation: "Assistant Professor", phone: "01924470784", email: "fahmida0001@uftb.ac.bd", imgFileName: "fahmida" },
+            { name: "Md. Ashiqussalehin", designation: "Lecturer", phone: "01799776562", email: "ashiqussalehin0001@uftb.ac.bd", imgFileName: "ashiqussalehin" },
+            { name: "Md. Rafiqul Islam", designation: "Lecturer", phone: "01521108404", email: "rafiqul0001@uftb.ac.bd", imgFileName: "rafiqul" },
+            { name: "Saurav Chandra Das", designation: "Lecturer", phone: "01521434695", email: "saurav0001@uftb.ac.bd", imgFileName: "saurav" },
+            { name: "Mostafiz Ahammed", designation: "Lecturer", phone: "01884307860", email: "mostafiz0001@uftb.ac.bd", imgFileName: "mostafiz" }
+        ];
+
+        const chairmanImgDiv = document.getElementById('chairmanImg');
+        const setChairman = () => {
+            const img = new Image();
+            img.onload = () => { chairmanImgDiv.innerHTML = ''; chairmanImgDiv.appendChild(img); };
+            img.onerror = () => { chairmanImgDiv.innerHTML = '<i class="fas fa-user-tie"></i>'; };
+            img.src = 'images/suman-saha.jpg';
+        };
+        setChairman();
+
+        const facultyListDiv = document.getElementById('facultyList');
+        facultyData.forEach(f => {
+            const card = document.createElement('div');
+            card.className = 'other-card';
+            card.innerHTML = `<div class="profile-img" id="faculty-img-${f.imgFileName}"><i class="fas fa-chalkboard-user"></i></div><div class="faculty-name">${f.name}</div><div class="faculty-desig">${f.designation}</div><div class="faculty-contact"><i class="fas fa-phone"></i> ${f.phone}</div><div class="faculty-contact"><i class="fas fa-envelope"></i> ${f.email}</div>`;
+            facultyListDiv.appendChild(card);
+            const imgDiv = card.querySelector(`#faculty-img-${f.imgFileName}`);
+            const img = new Image();
+            img.onload = () => { imgDiv.innerHTML = ''; imgDiv.appendChild(img); };
+            img.onerror = () => { imgDiv.innerHTML = '<i class="fas fa-chalkboard-user"></i>'; };
+            img.src = `images/${f.imgFileName}.jpg`;
+        });
+
+        // Scroll controls
+        function initScroll(wrapper, left, right) {
+            const w = document.getElementById(wrapper);
+            if (!w) return;
+            const l = document.getElementById(left);
+            const r = document.getElementById(right);
+            const step = 200;
+            if (l) l.onclick = () => w.scrollBy({ left: -step, behavior: 'smooth' });
+            if (r) r.onclick = () => w.scrollBy({ left: step, behavior: 'smooth' });
+        }
+        initScroll('facultyScrollWrapper', 'facultyScrollLeftBtn', 'facultyScrollRightBtn');
+        initScroll('studentScrollWrapper', 'studentScrollLeftBtn', 'studentScrollRightBtn');
+
+        // Typing Welcome
+        const welcomeEl = document.getElementById('welcomeTyping');
+        const texts = ["Welcome to IRE", "Innovate the Future with IoT & Robotics"];
+        let ti = 0, ci = 0, del = false;
+        function typeEffect() {
+            const cur = texts[ti];
+            if (del) {
+                welcomeEl.innerText = cur.substring(0, ci - 1);
+                ci--;
+                if (ci === 0) {
+                    del = false;
+                    ti++;
+                    if (ti === texts.length) {
+                        setTimeout(() => {
+                            document.getElementById('welcomeScreen').classList.add('hide');
+                            document.getElementById('mainContent').classList.add('show');
+                        }, 300);
+                        return;
+                    }
+                    setTimeout(typeEffect, 200);
+                } else setTimeout(typeEffect, 30);
+            } else {
+                welcomeEl.innerText = cur.substring(0, ci + 1);
+                ci++;
+                if (ci === cur.length) {
+                    del = true;
+                    setTimeout(typeEffect, 1000);
+                } else setTimeout(typeEffect, 50);
+            }
+        }
+        typeEffect();
+
+        // Countdown timer (10 June 2026, 23:59)
+        function updateCountdown() {
+            const target = new Date(2026, 5, 10, 23, 59, 0);
+            const now = new Date();
+            const diff = target - now;
+            if (diff <= 0) { document.getElementById('countdownTimer').innerHTML = 'প্রাথমিক ভর্তির সময় শেষ'; return; }
+            const days = Math.floor(diff / 86400000);
+            const hours = Math.floor((diff % 86400000) / 3600000);
+            const mins = Math.floor((diff % 3600000) / 60000);
+            const secs = Math.floor((diff % 60000) / 1000);
+            document.getElementById('countdownTimer').innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>IRE Admission 2026 | UFTB</title>
+    <title>IRE Admission 2026 | UFTB | GST 2nd Phase</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -105,9 +105,10 @@
             padding: 5px 12px;
             border-radius: 30px;
             display: inline-block;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.75rem;
-            border: 1px solid #00b4ff;
+            border: 1px solid #ffb347;
+            color: #ffdeae;
         }
 
         .section-head {
@@ -128,7 +129,6 @@
             color: transparent;
         }
 
-        /* নতুন বুলেট লিস্ট: হেডিং আলাদা লাইন, প্যারাগ্রাফ নিচের লাইনে */
         .bullet-list {
             list-style: none;
             margin: 0;
@@ -167,10 +167,8 @@
         .bullet-text a {
             color: #ffb347;
             text-decoration: underline;
-            word-break: break-word;
         }
 
-        /* ফিচার গ্রিড */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -186,7 +184,6 @@
         }
         .feature-card i { font-size: 1.4rem; color: #ffb347; margin-bottom: 6px; display: block; }
 
-        /* FAQ */
         .faq-item {
             border-left: 3px solid #ffb347;
             margin-bottom: 16px;
@@ -202,7 +199,6 @@
         }
         .faq-item div:last-child { font-size: 0.8rem; line-height: 1.45; color: #e0edf5; }
 
-        /* তারিখ টেবিল */
         .date-table {
             width: 100%;
             border-collapse: collapse;
@@ -217,7 +213,6 @@
         }
         .date-table th { background: #0f2f42; color: #ffb347; font-weight: 600; }
 
-        /* চেয়ারম্যান ও স্ক্রল কার্ড */
         .chairman-area { display: flex; justify-content: center; margin-bottom: 24px; }
         .chairman-card {
             max-width: 260px;
@@ -308,6 +303,14 @@
             margin-bottom: 18px;
         }
         .countdown-timer { font-size: 1.2rem; font-weight: 800; color: #ffb347; }
+        .urgent-note {
+            background: #ffb34720;
+            border-left: 4px solid #ffb347;
+            padding: 10px 12px;
+            border-radius: 16px;
+            margin-top: 12px;
+            font-size: 0.75rem;
+        }
         footer { text-align: center; font-size: 0.65rem; margin-top: 20px; color: #8db3cf; }
         .footer-credit { margin-top: 5px; font-size: 0.6rem; color: #ffb347; }
         .animate-on-scroll { opacity: 0; transform: translateY(15px); transition: opacity 0.5s ease, transform 0.5s ease; }
@@ -339,46 +342,42 @@
                 <div class="logo-area"><div class="uni-logo"><img src="images/uftb-logo.png" alt="UFTB Logo" onerror="this.src='https://via.placeholder.com/65?text=UFTB'"></div></div>
                 <h1>University of Frontier Technology, Bangladesh</h1>
                 <h2><i class="fas fa-microchip"></i> Internet of Things & Robotics Engineering (IRE)</h2>
-                <div class="type-badge">✨ GST ভর্তি পরীক্ষায় উত্তীর্ণ! প্রাথমিক ভর্তি প্রক্রিয়া শুরু ✨</div>
+                <div class="type-badge">✨ GST ২য় ধাপ (২য় ফেজ) | প্রাথমিক ভর্তি প্রক্রিয়া শুরু ✨</div>
             </div>
 
             <div class="countdown-box animate-on-scroll">
-                <i class="fas fa-hourglass-half"></i> প্রাথমিক ভর্তি ও ফি প্রদানের শেষ সময়:
+                <i class="fas fa-hourglass-half"></i> ২য় ধাপ: GST অনলাইন ফি প্রদানের শেষ সময়:
                 <div class="countdown-timer" id="countdownTimer"></div>
-                <div style="font-size: 0.7rem;">শেষ তারিখ: ১০ জুন ২০২৬, রাত ১১:৫৯</div>
+                <div style="font-size: 0.7rem; margin-top: 5px;">শেষ তারিখ: ১৭ জুন ২০২৬, রাত ১১:৫৯ (PDF নোটিশ অনুযায়ী)</div>
             </div>
 
-            <!-- প্রাথমিক ভর্তি প্রক্রিয়া - হেডিং আলাদা লাইন, প্যারাগ্রাফ নিচের লাইনে -->
+            <!-- PDF ভিত্তিক প্রাথমিক ভর্তি প্রক্রিয়া (২য় ধাপ) -->
             <div class="glass-card animate-on-scroll">
-                <div class="section-head"><i class="fas fa-clipboard-list"></i><h3>প্রাথমিক ভর্তি প্রক্রিয়া (GST)</h3></div>
+                <div class="section-head"><i class="fas fa-clipboard-list"></i><h3>২য় ধাপ: GST প্রাথমিক ভর্তি (PDF বিজ্ঞপ্তি অনুযায়ী)</h3></div>
                 <ul class="bullet-list">
                     <li>
                         <i class="fas fa-arrow-right" style="color:#ffb347;"></i>
                         <div class="bullet-content">
-                            <span class="bullet-heading">অনলাইন ফি প্রদান:</span>
-                            <div class="bullet-text">৫,০০০/- (পাঁচ হাজার টাকা) প্রদানের সময়সীমা <strong>০৭/০৬/২০২৬, দুপুর ১২:০০ টা</strong> থেকে <strong>১০/০৬/২০২৬, রাত ১১:৫৯ টা</strong> পর্যন্ত।</div>
+                            <span class="bullet-heading">অনলাইন ফি প্রদান (GST পোর্টাল):</span>
+                            <div class="bullet-text"><strong>৫,০০০/- টাকা</strong> (পাঁচ হাজার টাকা)। সময়সীমা: <strong>১৫/০৬/২০২৬, দুপুর ১২:০০ টা</strong> থেকে <strong>১৭/০৬/২০২৬, রাত ১১:৫৯ টা</strong> পর্যন্ত।</div>
                         </div>
                     </li>
                     <li>
-                        <i class="fas fa-arrow-right" style="color:#ffb347;"></i>
+                        <i class="fas fa-globe" style="color:#ffb347;"></i>
                         <div class="bullet-content">
                             <span class="bullet-heading">GST ওয়েবসাইট:</span>
                             <div class="bullet-text"><a href="https://gstadmission.ac.bd/" target="_blank">gstadmission.ac.bd</a> - এ অনলাইনে ফি জমা দিন।</div>
                         </div>
                     </li>
-                    <li>
-                        <i class="fas fa-arrow-right" style="color:#ffb347;"></i>
-                        <div class="bullet-content">
-                            <span class="bullet-heading"></span>
-                            <div class="bullet-text">ফি প্রদানের পর প্রাথমিক ভর্তি নিশ্চিত করতে নিচের নিয়মে মূল কাগজপত্র জমা দিতে হবে।</div>
-                        </div>
-                    </li>
                 </ul>
+                <div class="urgent-note">
+                    <i class="fas fa-sticky-note"></i> <strong>জরুরি নির্দেশনা (PDF মোতাবেক):</strong> অনলাইনে ফি প্রদানের পর প্রাথমিক ভর্তি নিশ্চিত করতে নিচের নিয়মে <strong>মূল কাগজপত্র জমা দিতে হবে</strong>। জমা দিতে ব্যর্থ হলে প্রাথমিক ভর্তি বাতিল বলে গণ্য হবে।
+                </div>
             </div>
 
-            <!-- মূল কাগজপত্র জমার নিয়ম -->
+            <!-- মূল কাগজপত্র জমার নিয়ম (PDF details exact dates) -->
             <div class="glass-card animate-on-scroll">
-                <div class="section-head"><i class="fas fa-folder-open"></i><h3>মূল কাগজপত্র জমার নিয়ম</h3></div>
+                <div class="section-head"><i class="fas fa-folder-open"></i><h3>মূল কাগজপত্র জমার নিয়ম (প্রাথমিক ভর্তি)</h3></div>
                 <ul class="bullet-list">
                     <li>
                         <i class="fas fa-check-circle" style="color:#5fcc9e;"></i>
@@ -388,47 +387,38 @@
                         </div>
                     </li>
                     <li>
-                        <i class="fas fa-check-circle" style="color:#5fcc9e;"></i>
+                        <i class="fas fa-map-marker-alt" style="color:#5fcc9e;"></i>
                         <div class="bullet-content">
                             <span class="bullet-heading">জমাদানের স্থান:</span>
                             <div class="bullet-text">একাডেমিক ভবন-১, ইউনিভার্সিটি অব ফ্রন্টিয়ার টেকনোলজি, বাংলাদেশ (কালিয়াকৈর, গাজীপুর-১৭৫০)</div>
                         </div>
                     </li>
                     <li>
-                        <i class="fas fa-check-circle" style="color:#5fcc9e;"></i>
+                        <i class="fas fa-id-card" style="color:#5fcc9e;"></i>
                         <div class="bullet-content">
                             <span class="bullet-heading"></span>
-                            <div class="bullet-text">কাগজপত্র জমা দেওয়ার সময় অবশ্যই পরীক্ষার <strong>মূল প্রবেশপত্র</strong> দেখাতে হবে।</div>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-check-circle" style="color:#5fcc9e;"></i>
-                        <div class="bullet-content">
-                            <span class="bullet-heading"></span>
-                            <div class="bullet-text">জমা দেওয়ার পর একাডেমিক কমিটি কর্তৃক স্বাক্ষর ও সিল দেওয়া <strong>জমাদান স্লিপ</strong> সংগ্রহ করে রাখতে হবে।</div>
+                            <div class="bullet-text">কাগজপত্র জমা দেওয়ার সময় পরীক্ষার <strong>মূল প্রবেশপত্র</strong> দেখাতে হবে। জমা দেওয়ার পর একাডেমিক কমিটি কর্তৃক স্বাক্ষর ও সিল দেওয়া <strong>জমাদান স্লিপ</strong> সংগ্রহ করে রাখতে হবে।</div>
                         </div>
                     </li>
                 </ul>
                 <table class="date-table">
                     <thead><tr><th>তারিখ</th><th>বার</th><th>সময়</th></tr></thead>
                     <tbody>
-                        <tr><td>০৮/০৬/২০২৬</td><td>সোমবার</td><td rowspan="4">সকাল ১০:০০ টা থেকে বিকাল ০৩:০০ টা</td></tr>
-                        <tr><td>০৯/০৬/২০২৬</td><td>মঙ্গলবার</td></tr>
-                        <tr><td>১০/০৬/২০২৬</td><td>বুধবার</td></tr>
-                        <tr><td>১১/০৬/২০২৬</td><td>বৃহস্পতিবার</td></tr>
+                        <tr><td><strong>১৬/০৬/২০২৬</strong></td><td>মঙ্গলবার</td><td rowspan="3">সকাল ১০:০০ টা থেকে বিকাল ০৩:০০ টা</td></tr>
+                        <tr><td><strong>১৭/০৬/২০২৬</strong></td><td>বুধবার</td></tr>
+                        <tr><td><strong>১৮/০৬/২০২৬</strong></td><td>বৃহস্পতিবার</td></tr>
                     </tbody>
                 </table>
-                <p style="font-size:0.7rem; margin-top:10px;"><i class="fas fa-info-circle"></i> নির্ধারিত সময়ের মধ্যে কাগজপত্র জমা দিতে ব্যর্থ হলে প্রাথমিক ভর্তি বাতিল বলে গণ্য হবে।</p>
+                <p style="font-size:0.7rem; margin-top:10px;"><i class="fas fa-info-circle"></i> নির্ধারিত সময়ের মধ্যে কাগজপত্র জমা দিতে ব্যর্থ হলে অথবা ভুল তথ্য দিলে প্রাথমিক ভর্তি বাতিল হবে। (PDF নোটিশ স্মারক: ৩৭.০১.৩৩০৫.০৩৩.৬০.০১৫.২৫)</p>
             </div>
 
-            <!-- গুরুত্বপূর্ণ তারিখ -->
+            <!-- গুরুত্বপূর্ণ তারিখ (আপডেট) -->
             <div class="glass-card animate-on-scroll">
-                <div class="section-head"><i class="fas fa-calendar-alt"></i><h3>গুরুত্বপূর্ণ তারিখ</h3></div>
+                <div class="section-head"><i class="fas fa-calendar-alt"></i><h3>গুরুত্বপূর্ণ তারিখ (২য় ধাপ GST)</h3></div>
                 <ul class="bullet-list">
-                    <li><i class="fas fa-calendar-check"></i><div class="bullet-content"><span class="bullet-heading">অনলাইন ফি প্রদান:</span><div class="bullet-text"><strong>০৭-১০ জুন ২০২৬</strong></div></div></li>
-                    <li><i class="fas fa-file-alt"></i><div class="bullet-content"><span class="bullet-heading">মূল কাগজপত্র জমা:</span><div class="bullet-text"><strong>০৮-১১ জুন ২০২৬</strong> (সকাল ১০:০০ - বিকাল ০৩:০০)</div></div></li>
-                    <li><i class="fas fa-chalkboard-user"></i><div class="bullet-content"><span class="bullet-heading">ওরিয়েন্টেশন:</span><div class="bullet-text"><strong>পরে জানানো হবে</strong></div></div></li>
-                    <li><i class="fas fa-book-open"></i><div class="bullet-content"><span class="bullet-heading">ক্লাস শুরু:</span><div class="bullet-text"><strong>পরে জানানো হবে</strong></div></div></li>
+                    <li><i class="fas fa-dollar-sign"></i><div class="bullet-content"><span class="bullet-heading">অনলাইন ফি প্রদান:</span><div class="bullet-text"><strong>১৫-১৭ জুন ২০২৬</strong> (দুপুর ১২টা থেকে রাত ১১:৫৯)</div></div></li>
+                    <li><i class="fas fa-file-signature"></i><div class="bullet-content"><span class="bullet-heading">মূল কাগজপত্র জমা:</span><div class="bullet-text"><strong>১৬-১৮ জুন ২০২৬</strong> (সকাল ১০:০০ - বিকাল ০৩:০০)</div></div></li>
+                    <li><i class="fas fa-chalkboard-user"></i><div class="bullet-content"><span class="bullet-heading">ওরিয়েন্টেশন ও ক্লাস শুরু:</span><div class="bullet-text">পরে জানানো হবে (শিক্ষাবর্ষ ২০২৫-২৬)</div></div></li>
                 </ul>
             </div>
 
@@ -439,26 +429,26 @@
                     <div class="feature-card"><i class="fas fa-microchip"></i>৪র্থ শিল্পবিপ্লব</div>
                     <div class="feature-card"><i class="fas fa-laptop-code"></i>হ্যান্ডস-অন ল্যাব</div>
                     <div class="feature-card"><i class="fas fa-chalkboard-user"></i>শিল্প সংযোগ</div>
-                    <div class="feature-card"><i class="fas fa-flask"></i>গবেষণা</div>
+                    <div class="feature-card"><i class="fas fa-flask"></i>গবেষণা ও ইনোভেশন</div>
                 </div>
             </div>
 
-            <!-- FAQ -->
+            <!-- FAQ (হালনাগাদ তথ্য + সেমিস্টার ফি) -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head"><i class="fas fa-question-circle"></i><h3>সচরাচর জিজ্ঞাসা</h3></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> UFTB তে পড়লে future কেমন?</div><div>“তুমি যেখানেই পড়ো future তোমার নিজের উপর নির্ভর করে। UFTB-এর perspective থেকে বলতে গেলে, এখান থেকে অনেকেই ভালো ভালো জায়গায় গেছে। আর যদি ভবিষ্যতে বাইরে পড়ার পরিকল্পনা থাকে, তাহলে আমি মনে করি এটা একটা ভালো অপশন।”</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> টিউশন সুবিধা কেমন?</div><div>“টিউশন নেই এমনটা না। পেতে চাইলে শুরুতে নেটওয়ার্কিং লাগবে, পাবেন তবে যথেষ্ট সময় এবং ধৈর্য নিয়ে চেষ্টা করতে হবে।”</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ভর্তি হতে কি প্রশংসাপত্র লাগবে?</div><div>“চূড়ান্ত ভর্তির সময় লাগবে।”</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> কী কী ইকুইপমেন্ট কেনা লাগবে? ল্যাপটপ কি শুরু থেকে লাগবে?</div><div>“As an Engineering Student, Laptop is a must.”</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ল্যাব ফি আলাদা?</div><div>প্রথম সেমিস্টারে ভর্তি ফিতেই ল্যাব ফি অন্তর্ভুক্ত।</div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> সেমিস্টার ফি কত?</div><div><strong>৫,৯৫০ টাকা</strong></div></div>
-                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> সেশন জট কেমন?</div><div><strong>নেই</strong></div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> UFTB তে পড়লে future কেমন?</div><div>“তুমি যেখানেই পড়ো future তোমার নিজের উপর নির্ভর করে। UFTB-এর perspective থেকে বলতে গেলে, এখান থেকে অনেকেই ভালো ভালো জায়গায় গেছে এবং আন্তর্জাতিক শিক্ষা সংযোগ রয়েছে।”</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> টিউশন সুবিধা কেমন?</div><div>“মেধাবী ও প্রয়োজনের ভিত্তিতে টিউশন সুবিধা রয়েছে। নেটওয়ার্কিং ও একাডেমিক ফলাফলের মাধ্যমে সুযোগ নেওয়া যায়।”</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ভর্তি হতে কি প্রশংসাপত্র লাগবে?</div><div>“চূড়ান্ত ভর্তির সময় লাগবে (সকল মূল সার্টিফিকেট ও ট্রান্সক্রিপ্ট)।”</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ল্যাপটপ কি শুরু থেকে লাগবে?</div><div>“হ্যাঁ, ইঞ্জিনিয়ারিং শিক্ষার্থীর জন্য ল্যাপটপ অপরিহার্য।”</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-chevron-circle-right"></i> ল্যাব ফি আলাদা?</div><div>প্রথম সেমিস্টারের ভর্তি ফিতেই ল্যাব ফি অন্তর্ভুক্ত।</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-money-bill-wave"></i> সেমিস্টার ফি কত?</div><div><strong>৫,৯৫০ টাকা</strong> (পার সেমিস্টার)</div></div>
+                <div class="faq-item"><div class="faq-question"><i class="fas fa-clock"></i> সেশন জট কেমন?</div><div><strong>সেশনজট নেই</strong>, ইউনিভার্সিটি নিয়মিত সেশন পরিচালনা করে।</div></div>
             </div>
 
             <!-- Student Help Desk -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head"><i class="fas fa-users"></i><h3>Student Help Desk</h3></div>
-                <div style="text-align:center; margin-bottom:8px;"><p style="font-size:0.7rem;"><i class="fas fa-info-circle"></i> বর্তমান IRE শিক্ষার্থীদের সাথে যোগাযোগ করুন</p></div>
+                <div style="text-align:center; margin-bottom:8px;"><p style="font-size:0.7rem;"><i class="fas fa-info-circle"></i> বর্তমান IRE শিক্ষার্থীদের সাথে যোগাযোগ করুন (আইআরই ৭ম ও ৮ম ব্যাচ)</p></div>
                 <div class="scrollable-wrapper">
                     <div class="nav-btn" id="studentScrollLeftBtn"><i class="fas fa-chevron-left"></i></div>
                     <div class="horizontal-scroll-wrapper" id="studentScrollWrapper"><div class="student-horizontal-list" id="studentList"></div></div>
@@ -469,7 +459,7 @@
             <!-- Faculty Members -->
             <div class="glass-card animate-on-scroll">
                 <div class="section-head"><i class="fas fa-chalkboard-user"></i><h3>Faculty Members</h3></div>
-                <div class="chairman-area"><div class="chairman-card"><div class="profile-img" id="chairmanImg"><i class="fas fa-user-tie"></i></div><div class="faculty-name">Suman Saha</div><div class="faculty-desig">Assistant Professor & Chairman</div><div class="faculty-contact"><i class="fas fa-phone"></i> 01912127578</div><div class="faculty-contact"><i class="fas fa-envelope"></i> suman0001@uftb.ac.bd</div></div></div>
+                <div class="chairman-area"><div class="chairman-card"><div class="profile-img" id="chairmanImg"><i class="fas fa-user-tie"></i></div><div class="faculty-name">Suman Saha</div><div class="faculty-desig">Assistant Professor & Chairman (IRE)</div><div class="faculty-contact"><i class="fas fa-phone"></i> 01912127578</div><div class="faculty-contact"><i class="fas fa-envelope"></i> suman0001@uftb.ac.bd</div></div></div>
                 <div class="scrollable-wrapper">
                     <div class="nav-btn" id="facultyScrollLeftBtn"><i class="fas fa-chevron-left"></i></div>
                     <div class="horizontal-scroll-wrapper" id="facultyScrollWrapper"><div class="faculty-horizontal-list" id="facultyList"></div></div>
@@ -479,13 +469,13 @@
 
             <footer>
                 University of Frontier Technology, Bangladesh | Internet of Things & Robotics Engineering (IRE)<br>
-                <span class="footer-credit">🔧 Developed by Riyad Hossen (IRE 7th)</span>
+                <span class="footer-credit">🔧 Developed by Riyad Hossen (IRE 7th Batch) | নোটিশ রেফারেন্স: স্মারক ৩৭.০১.৩৩০৫.০৩৩.৬০.০১৫.২৫, তারিখ ১৪ জুন ২০২৬</span>
             </footer>
         </div>
     </div>
 
     <script>
-        // Student Data
+        // Student Data (for help desk)
         const studentData = [
             { name: "MD. FAHIM HOSSAIN SARKER", id: "2401016", phone: "+8801879168216", whatsapp: "8801879168216", facebook: "https://www.facebook.com/Fahim1747", batch: "IRE, 7th Batch", imgFileName: "fahim" },
             { name: "AVIJIT DAS", id: "2401018", phone: "+8801602048836", whatsapp: "8801602048836", facebook: "https://www.facebook.com/avijit.das.517775", batch: "IRE, 7th Batch", imgFileName: "avijit" },
@@ -561,7 +551,7 @@
         initScroll('facultyScrollWrapper', 'facultyScrollLeftBtn', 'facultyScrollRightBtn');
         initScroll('studentScrollWrapper', 'studentScrollLeftBtn', 'studentScrollRightBtn');
 
-        // Typing
+        // ----- ORIGINAL WELCOME TYPING MESSAGE (RESTORED) -----
         const welcomeEl = document.getElementById('welcomeTyping');
         const texts = ["Welcome to IRE", "Innovate the Future with IoT & Robotics"];
         let ti = 0, ci = 0, del = false;
@@ -592,18 +582,19 @@
             }
         }
         typeEffect();
+        // -------------------------------------------------------
 
-        // Countdown
+        // Countdown exact as per PDF: target 17 June 2026, 23:59
         function updateCountdown() {
-            const target = new Date(2026, 5, 10, 23, 59, 0);
+            const target = new Date(2026, 5, 17, 23, 59, 0);
             const now = new Date();
             const diff = target - now;
-            if (diff <= 0) { document.getElementById('countdownTimer').innerHTML = 'প্রাথমিক ভর্তির সময় শেষ'; return; }
+            if (diff <= 0) { document.getElementById('countdownTimer').innerHTML = 'ফি প্রদানের সময় শেষ'; return; }
             const days = Math.floor(diff / 86400000);
             const hours = Math.floor((diff % 86400000) / 3600000);
             const mins = Math.floor((diff % 3600000) / 60000);
             const secs = Math.floor((diff % 60000) / 1000);
-            document.getElementById('countdownTimer').innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
+            document.getElementById('countdownTimer').innerHTML = `${days} দিন ${hours} ঘ ${mins} মি ${secs} সে`;
         }
         updateCountdown();
         setInterval(updateCountdown, 1000);
